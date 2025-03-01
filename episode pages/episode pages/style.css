@@ -1,0 +1,148 @@
+
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* Header & Navigation Styles */
+header {
+  background: var(--bg-color);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.nav-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.nav-item {
+  margin: 0 1rem;
+}
+.nav-link {
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+.nav-link:hover {
+  background-color: var(--button-color);
+  color: var(--bg-color);
+  border-radius: 4px;
+}
+.nav-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.nav-icon span {
+  height: 3px;
+  width: 25px;
+  background: var(--text-color);
+  margin: 3px 0;
+  border-radius: 3px;
+}
+
+/* Responsive Navigation */
+@media screen and (max-width: 768px) {
+  .nav-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--bg-color);
+    flex-direction: column;
+    display: none;
+  }
+  .nav-menu.active {
+    display: flex;
+  }
+  .nav-item {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .nav-icon {
+    display: flex;
+  }
+}
+
+/* Main Content Styles */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.episode-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.episode-card {
+  background: var(--accent-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
+}
+.episode-card:hover {
+  transform: scale(1.02);
+}
+.episode-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.episode-content {
+  padding: 1rem;
+}
+.episode-title {
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem;
+}
+.episode-summary {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.episode-link {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--button-color);
+  color: var(--bg-color);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+.episode-link:hover {
+  background: var(--accent-color);
+}
+
+/* Footer Styles */
+footer {
+  background: var(--bg-color);
+  padding: 1rem;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
