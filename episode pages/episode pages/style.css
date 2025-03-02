@@ -213,9 +213,23 @@ h1 {
   padding: 1rem 1.5rem; /* Increase the padding for height */
   border-radius: 4px;
   transition: background-color 0.3s;
+  text-decoration: none; /* Remove underline */
 }
 .episode-link:hover {
   background: #FFD700;
+}
+
+.Episode-section-link a  {
+  text-decoration:none; /* Remove underline from the link */
+  font-size: 20px;
+  color: #DA70D6;
+  margin-top: 30px; /* Add margin-top to create separation */
+  display: inline-block; /* Ensure the link is displayed as a block element */
+  transition: background-color 0.3s, color 0.3s; /* Add transition for hover effect */
+}
+
+.Episode-section-link a:hover {
+  background-color: #DA70D6; /* Change background color on hover */
 }
 
 /* Footer Styles */

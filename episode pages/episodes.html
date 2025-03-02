@@ -11,8 +11,8 @@
   <!-- Header & Navigation -->
   <header>
     <div class="logo">
-        <a href="index 4.html"> <!-- Link to homepage, adjust the href if needed -->
-            <img src="path_to_logo_image.jpg" alt="Third Opinion Podcast Logo">
+        <a href="../index 4.html"> <!-- Link to homepage, adjust the href if needed -->
+            <img src="../path_to_logo_image.jpg" alt="Third Opinion Podcast Logo">
         </a>
     </div>
     <nav>
@@ -22,34 +22,34 @@
             <div></div>
         </div>
         <ul>
-            <li><a href="Booking page/booking.html">Bookings</a></li>
-            <li><a href="episode pages/episodes.html">Episodes</a></li>
+            <li><a href="../Booking page/booking.html">Bookings</a></li>
+            <li><a href="episodes.html">Episodes</a></li>
             <!-- The Hosts with Dropdown -->
             <li class="dropdown">
-                <a href="/hosts page/index2.html" class="dropbtn">The Hosts</a>
+                <a href="../hosts page/index2.html" class="dropbtn">The Hosts</a>
                 <ul class="dropdown-content">
-                    <li><a href="/hosts page/talia.html">Talia</a></li>
-                    <li><a href="/hosts page/josh.html">Josh</a></li>
-                    <li><a href="/hosts page/valentine.html">Valentine</a></li>
+                    <li><a href="../hosts page/talia.html">Talia</a></li>
+                    <li><a href="../hosts page/josh.html">Josh</a></li>
+                    <li><a href="../hosts page/valentine.html">Valentine</a></li>
                 </ul>
             </li>
             <!-- Shop with Dropdown -->
             <li class="dropdown">
-                <a href="Shop pages/shopoverview.html" class="dropbtn">Shop</a>
+                <a href="../Shop pages/shopoverview.html" class="dropbtn">Shop</a>
                 <ul class="dropdown-content">
-                    <li><a href="Shop pages/Merch.html">Merchandise</a></li>
-                    <li><a href="Shop pages/Accessories.html">Accessories</a></li>
-                    <li><a href="Shop pages/Specials.html">Special Offers</a></li>
+                    <li><a href="../Shop pages/Merch.html">Merchandise</a></li>
+                    <li><a href="../Shop pages/Accessories.html">Accessories</a></li>
+                    <li><a href="../Shop pages/Specials.html">Special Offers</a></li>
                 </ul>
             </li>
             <!-- Fan Club with Dropdown -->
             <li class="dropdown">
-                <a href="fanclub.html" class="dropbtn">Fan Club</a>
+                <a href="../fanclub.html" class="dropbtn">Fan Club</a>
                 <ul class="dropdown-content">
-                    <li><a href="fanclub.html#members">Members</a></li>
-                    <li><a href="fanclub.html#events">Events</a></li>
-                    <li><a href="fanclub.html#sponsors">Sponsors</a></li>
-                    <li><a href="fanclub.html#join">Join</a></li>
+                    <li><a href="../fanclub.html#members">Members</a></li>
+                    <li><a href="../fanclub.html#events">Events</a></li>
+                    <li><a href="../fanclub.html#sponsors">Sponsors</a></li>
+                    <li><a href="../fanclub.html#join">Join</a></li>
                 </ul>
             </li>
         </ul>
@@ -112,6 +112,21 @@
           <a href="episode5.html" class="episode-link">Listen Now</a>
         </div>
       </div>
+      <!-- Episode Card 6 -->
+      <div class="episode-card">
+        <img src="../Tajova web images/NEW EPISODES THUMBNAIL.png" alt="Episode 6 Cover" class="episode-image">
+        <div class="episode-content">
+          <h2 class="episode-title">Episode 6: Real talk</h2>
+          <p class="episode-summary">Diplomatic insights, Trending topics, and extra fun.</p>
+          <a href="episode6.html" class="episode-link">Listen Now</a>
+        </div>
+      </div>
+      <div class="Episode-section-link">
+        <a href="#" onclick="loadMoreEpisodes()">Latest Episodes</a>
+      </div>
+    </section>
+    <section id="more-episodes" class="episode-list" style="display: none;">
+      <!-- New episodes will be loaded here -->
     </section>
   </main>
 
@@ -121,5 +136,6 @@
   </footer>
 
   <script src="java.js"></script>
+  <script src="loadMoreEpisodes.js"></script>
 </body>
 </html>
