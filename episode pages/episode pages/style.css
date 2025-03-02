@@ -3,14 +3,15 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background: var(--bg-color);
+  font-family: 'Roboto', sans-serif; /* Consistent font family */
+  background-color: #000;
   color: var(--text-color);
 }
 
 a {
-  color: var(--text-color);
-  text-decoration: none;
+  color:#ooo;
+  text-decoration: none; /* Remove underline from links */
+  font-size
 }
 
 /* Header & Navigation Styles */
@@ -100,7 +101,7 @@ h1 {
   gap: 2rem;
 }
 .episode-card {
-  background: var(--accent-color);
+  background:#333;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
@@ -115,7 +116,8 @@ h1 {
   object-fit: cover;
 }
 .episode-content {
-  padding: 1rem;
+  padding: 20px;
+  color: #fff;
 }
 .episode-title {
   font-size: 1.4rem;
@@ -128,14 +130,14 @@ h1 {
 .episode-link {
   display: inline-block;
   margin-top: 1rem;
-  background: var(--button-color);
+  background: #DA70D6;
   color: var(--bg-color);
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: background-color 0.3s;
 }
 .episode-link:hover {
-  background: var(--accent-color);
+  background: #FFD700;
 }
 
 /* Footer Styles */
