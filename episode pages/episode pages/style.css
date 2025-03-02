@@ -1,4 +1,3 @@
-
 /* Global Styles */
 body {
   margin: 0;
@@ -8,82 +7,159 @@ body {
   color: var(--text-color);
 }
 
-a {
-  color:#ooo;
-  text-decoration: none; /* Remove underline from links */
-  font-size
-}
-
-/* Header & Navigation Styles */
+/* Header and Logo Styles */
 header {
-  background: var(--bg-color);
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.nav-logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-.nav-menu {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-.nav-item {
-  margin: 0 1rem;
-}
-.nav-link {
-  padding: 0.5rem 1rem;
-  transition: background-color 0.3s, color 0.3s;
-}
-.nav-link:hover {
-  background-color: var(--button-color);
-  color: var(--bg-color);
-  border-radius: 4px;
-}
-.nav-icon {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-.nav-icon span {
-  height: 3px;
-  width: 25px;
-  background: var(--text-color);
-  margin: 3px 0;
-  border-radius: 3px;
+    background-color: #DA70D6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive Navigation */
-@media screen and (max-width: 768px) {
-  .nav-menu {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background: var(--bg-color);
-    flex-direction: column;
-    display: none;
-  }
-  .nav-menu.active {
-    display: flex;
-  }
-  .nav-item {
-    margin: 1rem 0;
-    text-align: center;
-  }
-  .nav-icon {
-    display: flex;
-  }
+header .logo img { /* Logo styles correctly placed inside header */
+    height: 50px;
+    width: auto;
+    margin-right: 20px;
 }
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: center; /* Centers the navigation menu */
+    align-items: center;
+    width: 100%; /* Ensures the nav spans the full width */
+    position: relative; /* Keeps the navigation relative to the header */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 40px; /* Add consistent spacing between menu items */
+}
+
+nav ul li {
+    margin: 0;
+    position: relative; /* Ensures positioning for the dropdown */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black; 
+    font-size: 28px; 
+    font-family: 'Roboto', sans-serif; /* Consistent font family */
+    transition: color 0.3s;
+    margin-right: 20px; 
+}
+
+nav ul li a:hover {
+    color: white; 
+}
+
+/* Dropdown Menu Styles */
+nav ul li .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #DA70D6;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    
+}
+
+nav ul li:hover .dropdown-content {
+    display: block;
+}
+
+nav ul li .dropdown-content a {
+    color: black;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Roboto', sans-serif; /* Consistent font family */
+    font-size: 20px; /* Adjusted font size */
+    transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+nav ul li .dropdown-content a:hover {
+    background-color: #C65AC3;
+}
+
+/* Add spacing between Shop and Fan Club */
+.nav-item {
+    margin-right: 30px; /* Adjust the value as needed */
+}
+
+.nav-item.fanclub {
+    margin-left: 30px; /* Adjust the value as needed */
+}
+
+/* Search Bar Styles */
+.search-bar {
+    display: none; 
+    position: absolute;
+    top: 50px; 
+    right: 0;
+    left: 0;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1100;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    width: 50%; /* Adjusted width */
+    margin: 0 auto; /* Center horizontally */
+}
+
+.search-bar input {
+    width: calc(100% - 110px); /* Account for button width */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Include padding in width calculation */
+    vertical-align: middle;
+}
+
+.search-bar button {
+    background-color: #DA70D6;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: grab;
+    font-size: 16px;
+    width: 100px; /* Fixed button width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    vertical-align: middle;
+}
+
+.search-bar button:hover {
+    background-color: #C65AC3;
+}
+
+/* Close Button Styles */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+close-btn:hover {
+    color: white;
+}
+
 
 /* Main Content Styles */
 main {
@@ -101,23 +177,25 @@ h1 {
   gap: 2rem;
 }
 .episode-card {
-  background:#333;
+  background: #333;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s;
+  height: 500px; /* Increase the height as needed */
 }
 .episode-card:hover {
   transform: scale(1.02);
 }
 .episode-image {
   width: 100%;
-  height: 200px;
+  height: 300px; /* Increase the height as needed */
   object-fit: cover;
 }
 .episode-content {
   padding: 20px;
   color: #fff;
+  height: 180px; /* Adjust the height as needed */
 }
 .episode-title {
   font-size: 1.4rem;
@@ -132,7 +210,7 @@ h1 {
   margin-top: 1rem;
   background: #DA70D6;
   color: var(--bg-color);
-  padding: 0.5rem 1rem;
+  padding: 1rem 1.5rem; /* Increase the padding for height */
   border-radius: 4px;
   transition: background-color 0.3s;
 }
