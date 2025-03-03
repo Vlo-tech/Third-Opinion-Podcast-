@@ -183,6 +183,7 @@ h1 {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s;
   height: 500px; /* Adjust the height as needed */
+  position: relative; /* Ensure the play button is positioned relative to the card */
 }
 .episode-card:hover {
   transform: scale(1.02);
@@ -227,6 +228,8 @@ h1 {
   display: inline-block; /* Ensure the link is displayed as a block element */
   transition: background-color 0.3s, color 0.3s; /* Add transition for hover effect */
 }
+
+
 
 /* Specific styles for dynamically added episodes */
 
@@ -287,11 +290,173 @@ h1 {
   background: #FFD700;
 }
 
+/* Play button overlay styles */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: #DA70D6;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.episode-card:hover .play-button {
+  opacity: 1;
+}
+
 /* Footer Styles */
 footer {
-  background: var(--bg-color);
-  padding: 1rem;
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 0.9rem;
+    background-color: #9932cc;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    width: 100%;
+    position: relative;
+    margin-top: auto; /* Ensures footer stays at the bottom of the page */
+}
+
+/* Footer Social Icons */
+footer .social-icons {
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hover Effect */
+footer .social-icons a:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+/* Icon Colors */
+footer .social-icons .fa-facebook {
+    color: #1877F2; /* Facebook Blue */
+}
+
+footer .social-icons .fa-twitter {
+    color: #1DA1F2; /* Twitter Blue */
+}
+
+footer .social-icons .fa-instagram {
+    color: #E4405F; /* Instagram Gradient Pink */
+}
+
+footer .social-icons .fa-tiktok {
+    color: #000000; /* TikTok Black */
+}
+
+footer .social-icons .fa-spotify {
+    color: #1DB954; /* Spotify Green */
+}
+
+footer .social-icons .fa-amazon  {
+    color: #FF9900; /* Amazon Orange */
+}
+
+footer .social-icons .fa-apple {
+    color: #000000; /* Apple Black */
+}
+
+footer .social-icons .fa-heart {
+    color: #C6002B; /* iHeartRadio Red */
+}
+
+/* Footer Layout */
+footer {
+    background-color: #9932cc;
+    color: #fff;
+    padding: 40px 20px;
+    font-family:'Roboto', sans-serif ;
+}
+
+/* Layout for Footer Content */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #444;
+    margin-bottom: 20px;
+}
+
+/* About Us Section */
+.footer-about,
+.footer-episodes,
+.footer-contact {
+    flex: 1 1 30%;
+    margin: 10px;
+    margin-right: 35px;
+}
+
+.footer-about h4,
+.footer-episodes h4,
+.footer-contact h4 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #333; /* Highlight color */
+}
+
+.footer-about p,
+.footer-contact p {
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Recent Episodes Section */
+.footer-episodes ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.footer-episodes li {
+    margin-bottom: 5px;
+}
+
+.footer-episodes a {
+    color: #333; /* Link color */
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-episodes a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.footer-links {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-links a {
+    color: #333;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
 }
