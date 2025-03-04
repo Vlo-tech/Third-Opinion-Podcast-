@@ -1,13 +1,13 @@
 <<<<<<< HEAD
 # Third-Opinion-Podcast-
 =======
-# [TAJOVA PODCAST]
+# [Third Opinion PODCAST]
 
-Welcome to the official website of [TAJOVA PODCAST], where three passionate hosts dive deep into the world of lifestyle, diplomacy, trending topics, controversial issues, fashion, technology, and everything in between. Whether you're here to stay informed, entertained, or curious about the world around you, we’ve got something for everyone!
+Welcome to the official website of [Third Opinion PODCAST], where three passionate hosts dive deep into the world of lifestyle, diplomacy, trending topics, controversial issues, fashion, technology, and everything in between. Whether you're here to stay informed, entertained, or curious about the world around you, we’ve got something for everyone!
 
 ## 🎙️ About The Podcast
 
-[TAJOVA PODCAST] is a dynamic and thought-provoking podcast hosted by three engaging personalities who share their perspectives on a wide range of topics. From hot takes on current events and the latest fashion trends to insightful discussions on global diplomacy and technology, we explore it all with authenticity, humor, and a bit of controversy.
+[Third Opinion PODCAST] is a dynamic and thought-provoking podcast hosted by three engaging personalities who share their perspectives on a wide range of topics. From hot takes on current events and the latest fashion trends to insightful discussions on global diplomacy and technology, we explore it all with authenticity, humor, and a bit of controversy.
 
 ### Hosts
 - **Host 1**: [Talia/Role] — A [Talia brings dynamic energy with a passion for content creation and interaction making her the voice of the podcast and its originator]
@@ -46,9 +46,9 @@ Follow us on social media for updates, behind-the-scenes content, and to share y
 We’re always looking for feedback, ideas, or potential guests! If you have a suggestion, topic you’d like us to cover, or want to be a guest on the show, reach out to us at [tajova@gmail.com /contact form].
 
 ## 🔑 License
-This podcast is produced and hosted by [ZERO3]. All content is copyrighted, but you’re welcome to share our episodes with proper credit.
+This podcast is produced and hosted by [Adverto]. All content is copyrighted, but you’re welcome to share our episodes with proper credit.
 
 ---
 
-Thank you for being part of the [TAJOVA PODCAST] community. We can’t wait to have you join the conversation and dive into the world of ideas, culture, and innovation with us!
+Thank you for being part of the [Third Opinion PODCAST] community. We can’t wait to have you join the conversation and dive into the world of ideas, culture, and innovation with us!
 >>>>>>> 14a269e (Initial commit)
