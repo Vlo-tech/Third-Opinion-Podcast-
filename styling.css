@@ -223,6 +223,7 @@ close-btn:hover {
     font-size: 22px;
     transition: background-color 0.3s, color 0.3s;
     border-radius: 5px;
+    text-decoration: none; /* Remove underline from the link */ 
 }
 
 .cta-button:hover {
