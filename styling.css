@@ -325,8 +325,8 @@ close-btn:hover {
 .Episode-card {
     background-color: #333;
     border-radius: 10px;
-    overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
     flex: 1 1 calc(25% - 10px); /* Four cards per row */
     display: flex;
     flex-direction: column;
@@ -340,6 +340,7 @@ close-btn:hover {
     border-radius: 10px 10px 0 0; /* Rounded corners for the top */
 }
 
+/* Ensure the episode content takes up available space */
 .Episode-content {
     padding: 20px;
     color: white;
@@ -364,19 +365,20 @@ close-btn:hover {
 .Episode-buttons {
     display: flex;
     gap: 10px;
+
 }
 
 .Episode-buttons .btn {
-    background-color: #DA70D6;
-    color: white;
+    background: #DA70D6;
+    color: #fff;
     padding: 10px 15px;
-    text-decoration: none;
     border-radius: 5px;
+    text-decoration: none;
     transition: background-color 0.3s;
 }
 
 .Episode-buttons .btn:hover {
-    background-color: #C65AC3;
+    background: #FFD700;
 }
 
 .Episode-section-link a  {
