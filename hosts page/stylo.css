@@ -1,0 +1,493 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif; /* Consistent font family */
+    background-color: #000;
+    color: #fff;
+}
+
+/* Header and Logo Styles */
+header {
+    background-color: #DA70D6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .logo img { /* Logo styles correctly placed inside header */
+    height: 50px;
+    width: auto;
+    margin-right: 20px;
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: center; /* Centers the navigation menu */
+    align-items: center;
+    width: 100%; /* Ensures the nav spans the full width */
+    position: relative; /* Keeps the navigation relative to the header */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 40px; /* Add consistent spacing between menu items */
+}
+
+nav ul li {
+    margin: 0;
+    position: relative; /* Ensures positioning for the dropdown */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black; 
+    font-size: 28px; 
+    font-family: 'Roboto', sans-serif; /* Consistent font family */
+    transition: color 0.3s;
+    margin-right: 20px; 
+}
+
+nav ul li a:hover {
+    color: white; 
+}
+
+/* Dropdown Menu Styles */
+nav ul li .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #DA70D6;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    
+}
+
+nav ul li:hover .dropdown-content {
+    display: block;
+}
+
+nav ul li .dropdown-content a {
+    color: black;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Roboto', sans-serif; /* Consistent font family */
+    font-size: 20px; /* Adjusted font size */
+    transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+nav ul li .dropdown-content a:hover {
+    background-color: #C65AC3;
+}
+
+/* Add spacing between Shop and Fan Club */
+.nav-item {
+    margin-right: 30px; /* Adjust the value as needed */
+}
+
+.nav-item.fanclub {
+    margin-left: 30px; /* Adjust the value as needed */
+}
+
+/* Search Bar Styles */
+.search-bar {
+    display: none; 
+    position: absolute;
+    top: 50px; 
+    right: 0;
+    left: 0;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1100;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    width: 50%; /* Adjusted width */
+    margin: 0 auto; /* Center horizontally */
+}
+
+.search-bar input {
+    width: calc(100% - 110px); /* Account for button width */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Include padding in width calculation */
+    vertical-align: middle;
+}
+
+.search-bar button {
+    background-color: #DA70D6;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: grab;
+    font-size: 16px;
+    width: 100px; /* Fixed button width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    vertical-align: middle;
+}
+
+.search-bar button:hover {
+    background-color: #C65AC3;
+}
+
+/* Close Button Styles */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+close-btn:hover {
+    color: white;
+}
+
+
+/* Anchor Defaults */
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* Navigation Styles */
+header {
+    background-color: var(--bg-color);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.nav-item {
+    margin: 0 1rem;
+}
+
+.nav-link {
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: var(--button-color);
+    color: var(--bg-color);
+    border-radius: 4px;
+}
+
+/* Mobile Menu Icon */
+.nav-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.nav-icon span {
+    height: 3px;
+    width: 25px;
+    background-color: var(--text-color);
+    margin: 3px 0;
+    border-radius: 3px;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #DA70D6;
+    }
+    .nav-menu.active {
+    display: flex;
+    }
+    .nav-item {
+    margin: 1rem 0;
+    text-align: center;
+    }
+    .nav-icon {
+    display: flex;
+    }
+}
+
+/* Hosts Page - Modern Split-Screen Layout */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.host-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s;
+}
+
+.host-section:hover {
+    transform: translateY(-5px);
+}
+
+.host-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.host-image {
+    flex: 1;
+    max-width: 500px;
+}
+
+.host-image img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.host-info {
+    flex: 1;
+    padding: 1rem;
+}
+
+.host-info h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.host-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.host-link {
+    display: inline-block;
+    background-color: var(--button-color);
+    color: var(--bg-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.host-link:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* Responsive Hosts Layout */
+@media (max-width: 768px) {
+    .host-section {
+    flex-direction: column;
+    text-align: center;
+    }
+    .host-section.reverse {
+    flex-direction: column;
+    }
+    .host-image,
+    .host-info {
+    max-width: 100%;
+    }
+
+    .host-info h2 {
+    font-size: 1.75rem;
+    }
+
+    .host-info p {
+    font-size: 1rem;
+    }
+}
+
+/* Footer Styles */
+/* Footer Styles */
+footer {
+    background-color: #DA70D6;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    width: 100%;
+    position: relative;
+    margin-top: auto; /* Ensures footer stays at the bottom of the page */
+}
+
+/* Footer Social Icons */
+footer .social-icons {
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hover Effect */
+footer .social-icons a:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+/* Icon Colors */
+footer .social-icons .fa-facebook {
+    color: #1877F2; /* Facebook Blue */
+}
+
+footer .social-icons .fa-twitter {
+    color: #1DA1F2; /* Twitter Blue */
+}
+
+footer .social-icons .fa-instagram {
+    color: #E4405F; /* Instagram Gradient Pink */
+}
+
+footer .social-icons .fa-tiktok {
+    color: #000000; /* TikTok Black */
+}
+
+footer .social-icons .fa-spotify {
+    color: #1DB954; /* Spotify Green */
+}
+
+footer .social-icons .fa-amazon  {
+    color: #FF9900; /* Amazon Orange */
+}
+
+footer .social-icons .fa-apple {
+    color: #000000; /* Apple Black */
+}
+
+footer .social-icons .fa-heart {
+    color: #C6002B; /* iHeartRadio Red */
+}
+
+/* Footer Layout */
+footer {
+    background-color: #DA70D6;
+    color: #fff;
+    padding: 40px 20px;
+    font-family:'Roboto', sans-serif ;
+}
+
+/* Layout for Footer Content */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #444;
+    margin-bottom: 20px;
+}
+
+/* About Us Section */
+.footer-about,
+.footer-episodes,
+.footer-contact {
+    flex: 1 1 30%;
+    margin: 10px;
+    margin-right: 35px;
+}
+
+.footer-about h4,
+.footer-episodes h4,
+.footer-contact h4 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #333; /* Highlight color */
+}
+
+.footer-about p,
+.footer-contact p {
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Recent Episodes Section */
+.footer-episodes ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.footer-episodes li {
+    margin-bottom: 5px;
+}
+
+.footer-episodes a {
+    color: #333; /* Link color */
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-episodes a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.footer-links {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-links a {
+    color: #333;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+
