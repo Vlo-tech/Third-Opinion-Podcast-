@@ -248,7 +248,7 @@ main {
 
 .host-link {
     display: inline-block;
-    background-color: var(--button-color);
+    background-color:#DA70D6;
     color: var(--bg-color);
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
