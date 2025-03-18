@@ -18,6 +18,51 @@ body {
     overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
+
+/* Modal overlay */
+.modal {
+    display: none; /* Hidden initially */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+}
+
+/* Modal content styling */
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border: 2px solid #DA70D6; /* Orchid purple border */
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+/* Close button styling */
+.close {
+    color: #DA70D6;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Button styling */
+#leadForm button {
+    background-color: #DA70D6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
 /* Header and Logo Styles */
 header {
     background-color: #DA70D6;

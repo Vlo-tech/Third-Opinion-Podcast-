@@ -1,0 +1,25 @@
+{
+  "name": "third-opinion-podcast-website",
+  "version": "1.0.0",
+  "description": "<<<<<<< HEAD\r # Third-Opinion-Podcast-\r =======\r # [Third Opinion PODCAST]",
+  "main": "tajova.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vlo-tech/Third-Opinion-Podcast-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vlo-tech/Third-Opinion-Podcast-/issues"
+  },
+  "homepage": "https://github.com/Vlo-tech/Third-Opinion-Podcast-#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

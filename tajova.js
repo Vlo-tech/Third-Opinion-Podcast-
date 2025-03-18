@@ -28,6 +28,46 @@ searchInput.addEventListener('keypress', (event) => {
     }
 });
 
+// Display the modal as soon as the page loads
+window.addEventListener('load', () => {
+    const leadModal = document.getElementById('leadModal');
+    leadModal.style.display = 'block';
+});
+
+// Close the modal when the user clicks on the close button
+document.getElementById('closeModal').addEventListener('click', () => {
+    document.getElementById('leadModal').style.display = 'none';
+});
+
+// Handle lead form submission
+document.getElementById('leadForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+
+    try {
+        const response = await fetch('http://localhost:3000/api/leads', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            alert(result.message);
+            // Optionally, hide the modal after a successful submission
+            document.getElementById('leadModal').style.display = 'none';
+        } else {
+            alert(result.message);
+        }
+    } catch (error) {
+        alert('An error occurred while submitting your information.');
+    }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     const carousel = document.querySelector('.carousel');
     const items = document.querySelectorAll('.carousel-item');
