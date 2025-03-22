@@ -1,6 +1,10 @@
+require('dotenv').config(); // Load environment variables
+console.log("MONGO_URI from .env:", process.env.MONGO_URI); // Debugging line
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const mongoose = require('mongoose');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,10 +13,48 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// In-memory store for leads (for demonstration)
-let leads = [];
+// Connect to MongoDB (ensure .env contains MONGO_URI)
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
 
-// API endpoint for lead capture
+// Define Episode Schema & Model
+const episodeSchema = new mongoose.Schema({
+    episodeNumber: Number,
+    title: String,
+    summary: String,
+    thumbnail: String,
+    audioUrl: String
+});
+
+const Episode = mongoose.model('Episode', episodeSchema);
+
+// API endpoint to get all episodes (sorted by episodeNumber)
+app.get('/api/episodes', async (req, res) => {
+    try {
+        const episodes = await Episode.find({}).sort({ episodeNumber: 1 });
+        res.json(episodes);
+    } catch (err) {
+        res.status(500).json({ message: 'Error fetching episodes' });
+    }
+});
+
+// API endpoint to add a new episode (for admin use)
+app.post('/api/episodes', async (req, res) => {
+    try {
+        const newEpisode = new Episode(req.body);
+        await newEpisode.save();
+        res.status(201).json({ message: 'Episode added successfully!' });
+    } catch (err) {
+        res.status(500).json({ message: 'Error saving episode' });
+    }
+});
+
+// API endpoint for lead capture (existing functionality)
+let leads = [];
 app.post('/api/leads', (req, res) => {
     const { name, email } = req.body;
     if (!name || !email) {
@@ -20,11 +62,6 @@ app.post('/api/leads', (req, res) => {
     }
     leads.push({ name, email, submittedAt: new Date() });
     res.status(201).json({ message: 'Lead captured successfully!' });
-});
-
-// (Optional) API endpoint for retrieving leads - secure in production!
-app.get('/api/leads', (req, res) => {
-    res.json(leads);
 });
 
 app.listen(PORT, () => {
