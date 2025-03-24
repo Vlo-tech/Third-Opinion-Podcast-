@@ -1,33 +1,52 @@
 require('dotenv').config(); // Load environment variables
-console.log("MONGO_URI from .env:", process.env.MONGO_URI); // Debugging line
+console.log("MONGO_URI from .env:", process.env.MONGO_URI);
+console.log("Current directory:", process.cwd()); // Check current working directory
 
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const helmet = require('helmet');
 const mongoose = require('mongoose');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
-app.use(cors());
+// Use Helmet to set secure HTTP headers
+app.use(helmet());
+
+// Setup CORS (restrict this to your trusted development domain)
+// For example, if you're using Live Server on localhost:5500
+app.use(cors({
+    origin: ['http://127.0.0.1:5500'], // Adjust this to your actual frontend domain/port
+    methods: ['GET', 'POST']
+}));
+
+// Middleware for JSON parsing
 app.use(bodyParser.json());
 
-// Connect to MongoDB (ensure .env contains MONGO_URI)
+// Ensure MONGO_URI is defined
+if (!process.env.MONGO_URI) {
+    console.error("MongoDB connection string is missing! Check your .env file.");
+    process.exit(1);
+}
+
+// Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.error('MongoDB connection error:', err));
+.then(() => console.log('MongoDB connected successfully'))
+.catch(err => {
+    console.error('MongoDB connection failed:', err.message);
+});
 
-// Define Episode Schema & Model
+// Define Episode Schema with validation
 const episodeSchema = new mongoose.Schema({
-    episodeNumber: Number,
-    title: String,
-    summary: String,
-    thumbnail: String,
-    audioUrl: String
+    episodeNumber: { type: Number, required: true, unique: true },
+    title: { type: String, required: true },
+    summary: { type: String, required: true },
+    thumbnail: { type: String, required: true },
+    audioUrl: { type: String, required: true }
 });
 
 const Episode = mongoose.model('Episode', episodeSchema);

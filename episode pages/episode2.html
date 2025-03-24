@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Detailed view of the podcast episode.">
+  <title>Episode Details | TAJOVA Podcast</title>
+  <!-- Link to your main stylesheet (which contains your header & footer styles) -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons if needed -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Additional styling specific to the episode detail page */
+
+    /* Ensure the body background remains black as per your brand */
+    body {
+      background-color: #000;
+      color: #fff;
+      margin-top: 80px; /* To avoid overlap with fixed header */
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    #episode-detail {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #episode-detail h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #DA70D6; /* Orchid Purple for headings */
+    }
+
+    #episode-detail img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      margin: 20px auto;
+      display: block;
+    }
+
+    #episode-detail p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .external-links {
+      margin-top: 20px;
+      font-size: 1.1em;
+    }
+
+    .external-links a {
+      color: #DA70D6; /* Use orchid purple for external links */
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+
+    .external-links a:hover {
+      color: #C65AC3;
+      text-decoration: underline;
+    }
+
+    /* Audio player styling */
+    audio {
+      margin: 20px auto;
+      display: block;
+      width: 100%;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header (Reusing your header structure) -->
+  <header>
+    <div class="logo">
+      <a href="../index 4.html">
+        <img src="../path_to_logo_image.jpg" alt="Third Opinion Podcast Logo">
+      </a>
+    </div>
+    <nav aria-label="Main Navigation">
+      <div class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul>
+        <li><a href="../Booking page/booking.html">Bookings</a></li>
+        <li><a href="../episodes.html">Episodes</a></li>
+        <li class="dropdown">
+          <a href="../hosts page/index2.html" class="dropbtn">The Hosts</a>
+          <ul class="dropdown-content">
+            <li><a href="../hosts page/talia.html">Talia</a></li>
+            <li><a href="../hosts page/josh.html">Josh</a></li>
+            <li><a href="../hosts page/valentine.html">Valentine</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="../Shop pages/shopoverview.html" class="dropbtn">Shop</a>
+          <ul class="dropdown-content">
+            <li><a href="../Shop pages/Merch.html">Merchandise</a></li>
+            <li><a href="../Shop pages/Accessories.html">Accessories</a></li>
+            <li><a href="../Shop pages/Specials.html">Special Offers</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="../fanclub.html" class="dropbtn">Fan Club</a>
+          <ul class="dropdown-content">
+            <li><a href="../fanclub.html#members">Members</a></li>
+            <li><a href="../fanclub.html#events">Events</a></li>
+            <li><a href="../fanclub.html#sponsors">Sponsors</a></li>
+            <li><a href="../fanclub.html#join">Join</a></li>
+          </ul>
+        </li>
+      </ul>
+      <i class="fas fa-search" id="searchIcon" aria-label="Search"></i>
+    </nav>
+    <!-- Search Bar (if applicable, can be reused) -->
+    <div id="searchBar" class="search-bar" aria-hidden="true" role="search">
+      <input type="text" id="Searchinput" placeholder="Search..." aria-label="Search input" />
+      <button id="closeSearch" class="close-btn" aria-label="Close search">&times;</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div id="episode-detail">
+      <!-- Episode details will be loaded dynamically here -->
+    </div>
+    <!-- Audio Player -->
+    <audio id="audioPlayer" controls style="display: none;">
+      <source id="episode-audio" src="" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </main>
+
+  <!-- Footer (Reusing your footer structure) -->
+  <footer>
+    <div class="social-icons">
+      <a href="#" class="fab fa-facebook" title="Follow us on Facebook"></a>
+      <a href="#" class="fab fa-twitter" title="Follow us on Twitter"></a>
+      <a href="#" class="fab fa-instagram" title="Follow us on Instagram"></a>
+      <a href="#" class="fab fa-tiktok" title="Follow us on TikTok"></a>
+      <a href="#" class="fab fa-spotify" title="Follow us on Spotify"></a>
+      <a href="#" class="fab fa-amazon" title="Follow us on Amazon"></a>
+      <a href="#" class="fab fa-apple" title="Follow us on Apple Podcast"></a>
+      <a href="#" class="fab fa-heart" title="Follow us on Apple Music"></a>
+    </div>
+    <div class="footer-content">
+      <div class="footer-about">
+        <h4>About Us</h4>
+        <p>
+          Welcome to TAJOVA Podcast, a show where we explore self-improvement, nature, lifestyle, diplomacy, travel, mental health, and more.
+          Our goal is to entertain, educate, and connect with listeners through compelling conversations.
+        </p>
+      </div>
+      <div class="footer-episodes">
+        <h4>Recent Episodes</h4>
+        <ul>
+          <li><a href="#">Episode 1: A New Beginning</a></li>
+          <li><a href="#">Episode 2: The Journey Continues</a></li>
+          <li><a href="#">Episode 3: New Horizons</a></li>
+          <li><a href="#">Episode 4: Deep Dive</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Information</h4>
+        <p>Email: tajova@gmail.com</p>
+        <p>Phone: +254 743289335</p>
+        <p>Location: Nairobi, Kenya</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 TAJOVA Podcast. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Online Agreement</a>
+        <a href="#">Fraud Alert</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Utility to get query parameters
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const episodeNumber = getQueryParam("episodeNumber");
+      if (!episodeNumber) {
+        document.getElementById("episode-detail").innerHTML = `
+          <p style='color:red;'>Error: No episode specified.</p>
+          <a href="../episodes.html" style='color:#DA70D6;'>Back to Episodes</a>
+        `;
+        return;
+      }
+
+      // Fetch episodes from the backend
+      fetch("http://localhost:3000/api/episodes")
+
+        .then(response => response.json())
+        .then(episodes => {
+          const episode = episodes.find(ep => ep.episodeNumber == episodeNumber);
+          if (!episode) {
+            document.getElementById("episode-detail").innerHTML = "<p style='color:red;'>Error: Episode not found.</p>";
+            return;
+          }
+
+          // Display the episode details
+          document.getElementById("episode-detail").innerHTML = `
+            <h1>${episode.title}</h1>
+            <img src="${episode.thumbnail}" alt="Episode ${episode.episodeNumber} Cover">
+            <p>${episode.summary}</p>
+            <div class="external-links">
+              <a href="https://open.spotify.com" target="_blank">Spotify</a> |
+              <a href="https://itunes.apple.com" target="_blank">iTunes</a> |
+              <a href="https://www.youtube.com" target="_blank">YouTube</a>
+            </div>
+          `;
+
+          // Configure and play the audio
+          const audioPlayer = document.getElementById("audioPlayer");
+          const audioSource = document.getElementById("episode-audio");
+          audioSource.src = episode.audioUrl;
+          audioPlayer.load();
+          audioPlayer.style.display = 'block';
+          audioPlayer.play();
+        })
+        .catch(error => {
+          console.error("Error loading episode details:", error);
+          document.getElementById("episode-detail").innerHTML = "<p style='color:red;'>Error loading episode details.</p>";
+        });
+    });
+  </script>
+</body>
+</html>
