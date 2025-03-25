@@ -1,4 +1,11 @@
 /* Global Styles */
+
+* {
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -369,7 +376,7 @@ footer .social-icons .fa-heart {
 
 /* Footer Layout */
 footer {
-    background-color: #9932cc;
+    background-color: #DA70D6;
     color: #fff;
     padding: 40px 20px;
     font-family:'Roboto', sans-serif ;
