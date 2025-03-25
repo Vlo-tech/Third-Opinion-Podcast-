@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         episodes.forEach(episode => {
           const episodeCard = `
             <div class="episode-card">
-              <a href="episode.html?episodeNumber=${episode.episodeNumber}">
+              <a href="episode2.html?episodeNumber=${episode.episodeNumber}">
                 <img src="${episode.thumbnail}" alt="Episode ${episode.episodeNumber} Cover" class="episode-image">
                 <div class="play-button" data-audio-url="${episode.audioUrl}">&#9658;</div>
               </a>

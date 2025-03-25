@@ -40,7 +40,7 @@ mongoose.connect(process.env.MONGO_URI, {
     useUnifiedTopology: true
 })
 .then(() => {
-    console.log('MongoDB connected successfully');
+    console.log('✅ MongoDB connected successfully');
 
     // Define Episode Schema with validation
     const episodeSchema = new mongoose.Schema({
@@ -114,13 +114,19 @@ mongoose.connect(process.env.MONGO_URI, {
       }
     ];
 
-    // Only seed if collection is empty
-    Episode.countDocuments({}, async (err, count) => {
-      if (!err && count === 0) {
-        await Episode.insertMany(seedEpisodes);
-        console.log("Seeded 8 episodes!");
-      }
-    });
+    // Updated seeding logic using promises (no callback)
+    Episode.countDocuments({})
+      .then(count => {
+          if (count === 0) {
+              return Episode.insertMany(seedEpisodes)
+                  .then(() => console.log("Seeded 8 episodes!"))
+                  .catch(err => console.error("Error seeding episodes:", err));
+          } else {
+              console.log("Episodes already seeded, count:", count);
+          }
+      })
+      .catch(err => console.error("Error counting documents:", err));
+
     // ----- END: SEEDING LOGIC -----
 
     // API endpoint to get all episodes (sorted by episodeNumber)
