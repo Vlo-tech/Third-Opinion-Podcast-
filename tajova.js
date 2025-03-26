@@ -21,7 +21,6 @@ closeSearch.addEventListener('click', () => {
 // Handle search input (replace with actual search logic)
 searchInput.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
-        // Implement your actual search logic here
         const searchTerm = searchInput.value;
         console.log('Searching for:', searchTerm);
         // Example: Perform a search on your page content or make a server request
@@ -31,69 +30,81 @@ searchInput.addEventListener('keypress', (event) => {
 // Display the modal as soon as the page loads
 window.addEventListener('load', () => {
     const leadModal = document.getElementById('leadModal');
-    leadModal.style.display = 'block';
+    if (leadModal) {
+        leadModal.style.display = 'block';
+    }
 });
 
 // Close the modal when the user clicks on the close button
-document.getElementById('closeModal').addEventListener('click', () => {
-    document.getElementById('leadModal').style.display = 'none';
-});
+const closeModal = document.getElementById('closeModal');
+if (closeModal) {
+    closeModal.addEventListener('click', () => {
+        document.getElementById('leadModal').style.display = 'none';
+    });
+}
 
-// Handle lead form submission
-document.getElementById('leadForm').addEventListener('submit', async (event) => {
-    event.preventDefault();
+// Handle modal lead form submission
+const leadForm = document.getElementById('leadForm');
+if (leadForm) {
+    leadForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
 
-    try {
-        const response = await fetch('http://localhost:3000/api/leads', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name, email })
-        });
+        try {
+            const response = await fetch('http://localhost:3000/api/leads', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, email })
+            });
 
-        const result = await response.json();
-        if (response.ok) {
-            alert(result.message);
-            // Optionally, hide the modal after a successful submission
-            document.getElementById('leadModal').style.display = 'none';
-        } else {
-            alert(result.message);
+            const result = await response.json();
+            if (response.ok) {
+                alert(result.message);
+                document.getElementById('leadModal').style.display = 'none';
+            } else {
+                alert(result.message);
+            }
+        } catch (error) {
+            alert('An error occurred while submitting your information.');
         }
-    } catch (error) {
-        alert('An error occurred while submitting your information.');
-    }
-});
+    });
+}
 
-document.getElementById('footerLeadForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
+// Handle footer lead form submission
+const footerLeadForm = document.getElementById('footerLeadForm');
+if (footerLeadForm) {
+    footerLeadForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-    const name = document.getElementById('footerName').value;
-    const email = document.getElementById('footerEmail').value;
+        const name = document.getElementById('footerName').value;
+        const email = document.getElementById('footerEmail').value;
 
-    try {
-        const response = await fetch('/api/leads', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email })
-        });
+        try {
+            const response = await fetch('/api/leads', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email })
+            });
 
-        if (response.ok) {
-            alert('Thank you for signing up!');
-            document.getElementById('footerLeadForm').reset();
-        } else {
-            alert('Failed to sign up. Please try again.');
+            if (response.ok) {
+                alert('Thank you for signing up!');
+                footerLeadForm.reset();
+            } else {
+                alert('Failed to sign up. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error submitting lead:', error);
+            alert('An error occurred. Please try again.');
         }
-    } catch (error) {
-        console.error('Error submitting lead:', error);
-        alert('An error occurred. Please try again.');
-    }
-});
+    });
+}
 
-document.addEventListener('DOMContentLoaded', function() {
+// Carousel functionality
+document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.querySelector('.carousel');
     const items = document.querySelectorAll('.carousel-item');
     const prevButton = document.getElementById('prev');
@@ -101,7 +112,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const navMenu = document.querySelector('nav ul');
 
-    hamburgerMenu.addEventListener('click', function() {
+    // Toggle navigation menu for mobile
+    hamburgerMenu.addEventListener('click', function () {
         navMenu.classList.toggle('show');
     });
 
