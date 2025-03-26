@@ -160,8 +160,10 @@ mongoose.connect(process.env.MONGO_URI, {
       if (!name || !email) {
           return res.status(400).json({ message: 'Name and Email are required.' });
       }
+
+      // Save the lead to the database or an array
       leads.push({ name, email, submittedAt: new Date() });
-      res.status(201).json({ message: 'Lead captured successfully!' });
+      res.status(201).json({ message: 'Thank you for signing up!' });
     });
 
     // Finally, start listening after the DB logic is set

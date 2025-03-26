@@ -269,6 +269,10 @@ close-btn:hover {
     color: white;
 }
 
+
+
+
+
 /* Hero Image */
 .hero-image {
     margin-top: 0;  /* Remove margin if you want it directly under the header */
@@ -328,6 +332,12 @@ close-btn:hover {
     background-color: #000; 
     color: white;
 }
+
+
+
+
+
+
 
 /* Social Media Section */
 .Social-media-section {
@@ -394,6 +404,11 @@ close-btn:hover {
 .Social-media-section .social-icons .fa-youtube {
     color: #ff0000; /* Youtube Red */
 }
+
+
+
+
+
 
 /* Episode Section Styles */
 .Episode-section {
@@ -487,6 +502,11 @@ close-btn:hover {
     margin-top: 30px; /* Add margin-top to create separation */
 }
 
+
+
+
+
+
 /* About Section Styles */
 .about-section {
     padding: 30px 10px;
@@ -571,6 +591,10 @@ close-btn:hover {
 .carousel-controls button:hover {
     background:rgba(0, 0, 0, 0.8);
 }
+
+
+
+
 
 /* Visit Our Shop Section Styles */
 .visit-section {
@@ -709,178 +733,187 @@ close-btn:hover {
     color: #000;
 }
 
-/* Footer Styles */
-footer {
-    background-color: #DA70D6;
-    color: white;
-    text-align: center;
-    padding: 15px 20px;
-    width: 100%;
-    position: relative;
-    margin-top: auto; /* Ensures footer stays at the bottom of the page */
+/*******************************************************
+  1) Overall Footer Setup
+  2) Angled Background
+  3) Layout + Typography
+  4) Footer Bottom Bar
+*******************************************************/
+
+/* 1) Overall Footer Setup */
+.angled-footer {
+  position: relative;
+  background-color: #1B001B; /* Deep Muted Purple background */
+  color: #fff;
+  font-family: 'Arial', sans-serif;
 }
 
-/* Footer Social Icons */
-footer .social-icons {
-    margin-top: 10px;
+/* 
+  2) Angled Background:
+     Using a pseudo-element to create a diagonal shape at the top.
+*/
+.angled-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1B001B; /* Same as footer background */
+  transform: skewY(-3deg); /* Adjust angle as needed */
+  transform-origin: top left;
+  z-index: 0;
 }
 
-footer .social-icons a {
-    margin: 0 10px;
-    font-size: 24px;
-    text-decoration: none;
-    transition: color 0.3s ease;
+/* Ensure all footer content sits on top of the pseudo-element */
+.footer-inner {
+  position: relative;
+  z-index: 1;
+  padding: 60px 20px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
 }
 
-/* Hover Effect */
-footer .social-icons a:hover {
-    transform: scale(1.2); /* Slightly enlarge on hover */
+/* 3) Layout + Typography */
+.footer-brand,
+.footer-links-section,
+.footer-contact-section,
+.footer-signup-section {
+  flex: 1 1 220px;
+  min-width: 200px;
 }
 
-/* Icon Colors */
-footer .social-icons .fa-facebook {
-    color: #1877F2; /* Facebook Blue */
+.footer-brand h2 {
+  color: #DA706D; /* Orchid accent color */
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
-footer .social-icons .fa-twitter {
-    color: #1DA1F2; /* Twitter Blue */
+.footer-brand p {
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 0.95em;
 }
 
-footer .social-icons .fa-instagram {
-    color: #E4405F; /* Instagram Gradient Pink */
+.footer-links-section h4,
+.footer-contact-section h4,
+.footer-signup-section h4 {
+  color: #DA706D; /* Orchid accent for section headings */
+  margin-bottom: 10px;
+  font-size: 1.1em;
 }
 
-footer .social-icons .fa-tiktok {
-    color: #000000; /* TikTok Black */
+.footer-links-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-footer .social-icons .fa-spotify {
-    color: #1DB954; /* Spotify Green */
+.footer-links-section li {
+  margin-bottom: 6px;
 }
 
-footer .social-icons .fa-amazon  {
-    color: #FF9900; /* Amazon Orange */
+.footer-links-section a {
+  color: #DA706D;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-footer .social-icons .fa-apple {
-    color: #000000; /* Apple Black */
+.footer-links-section a:hover {
+  color: #b8605d;
 }
 
-footer .social-icons .fa-heart {
-    color: #C6002B; /* iHeartRadio Red */
+/* Contact Section */
+.footer-contact-section p {
+  margin-bottom: 8px;
+  color: #ccc;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+.footer-contact-section a {
+  color: #DA706D;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-contact-section a:hover {
+  color: #b8605d;
+}
+.icon {
+  margin-right: 5px;
 }
 
-/* Footer Layout */
-footer {
-    background-color: #DA70D6;
-    color: #fff;
-    padding: 40px 20px;
-    font-family:'Roboto', sans-serif ;
+/* Sign Up Form */
+.footer-signup-section p {
+  color: #ccc;
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin-bottom: 15px;
 }
 
-/* Layout for Footer Content */
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #444;
-    margin-bottom: 20px;
+.footer-signup-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* About Us Section */
-.footer-about,
-.footer-episodes,
-.footer-contact {
-    flex: 1 1 30%;
-    margin: 10px;
-    margin-right: 35px;
+.footer-signup-section input {
+  padding: 10px;
+  border: 1px solid #DA706D;
+  border-radius: 4px;
+  background-color: #222;
+  color: #fff;
 }
 
-.footer-about h4,
-.footer-episodes h4,
-.footer-contact h4 {
-    font-size: 25px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    color: #333; /* Highlight color */
+.footer-signup-section input::placeholder {
+  color: #aaa;
 }
 
-.footer-about p,
-.footer-contact p {
-    line-height: 1.6;
-    text-align: left;
+.footer-signup-section .btn-signup {
+  padding: 10px;
+  background-color: #DA706D;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-/* Recent Episodes Section */
-.footer-episodes ul {
-    list-style: none;
-    padding: 0;
-    text-align: left;
+.footer-signup-section .btn-signup:hover {
+  background-color: #b8605d;
+  transform: scale(1.05);
 }
 
-.footer-episodes li {
-    margin-bottom: 5px;
-}
-
-.footer-episodes a {
-    color: #333; /* Link color */
-    text-decoration: none;
-    color: #fff;
-}
-
-.footer-episodes a:hover {
-    text-decoration: underline;
-}
-
-/* Footer Bottom Section */
+/* 4) Footer Bottom Bar */
 .footer-bottom {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid #444;
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 0.85em;
+  color: #aaa;
 }
 
-.footer-bottom p {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
+.footer-extra-links {
+  margin-top: 10px;
 }
 
-.footer-links {
-    display: flex;
-    gap: 15px;
+.footer-extra-links a {
+  color: #DA706D;
+  margin: 0 8px;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.footer-links a {
-    color: #333;
-    font-size: 16px;
-    text-decoration: none;
+.footer-extra-links a:hover {
+  color: #b8605d;
 }
 
-.footer-links a:hover {
-    text-decoration: underline;
-}
 
-/* Media Query for Smaller Screens */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
 
-    .footer-bottom {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-links {
-        margin-top: 10px;
-    }
-}
 
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {

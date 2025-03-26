@@ -68,6 +68,31 @@ document.getElementById('leadForm').addEventListener('submit', async (event) => 
     }
 });
 
+document.getElementById('footerLeadForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('footerName').value;
+    const email = document.getElementById('footerEmail').value;
+
+    try {
+        const response = await fetch('/api/leads', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email })
+        });
+
+        if (response.ok) {
+            alert('Thank you for signing up!');
+            document.getElementById('footerLeadForm').reset();
+        } else {
+            alert('Failed to sign up. Please try again.');
+        }
+    } catch (error) {
+        console.error('Error submitting lead:', error);
+        alert('An error occurred. Please try again.');
+    }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     const carousel = document.querySelector('.carousel');
     const items = document.querySelectorAll('.carousel-item');
