@@ -172,6 +172,7 @@ main {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 1rem;
+  margin-bottom: 90px; /* Add space between the main content and the footer */
 }
 h1 {
   text-align: center;
@@ -312,157 +313,172 @@ h1 {
   opacity: 1;
 }
 
-/* Footer Styles */
-footer {
-    background-color: #9932cc;
-    color: white;
-    text-align: center;
-    padding: 15px 20px;
-    width: 100%;
-    position: relative;
-    margin-top: auto; /* Ensures footer stays at the bottom of the page */
+/* ===================== Footer ===================== */
+.angled-footer {
+  position: relative;
+  background-color: #1B001B;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  margin-top: 90px; /* Add space between the footer and the content above */
 }
 
-/* Footer Social Icons */
-footer .social-icons {
-    margin-top: 10px;
+.angled-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1B001B;
+  transform: skewY(-3deg);
+  transform-origin: top left;
+  z-index: 0;
 }
 
-footer .social-icons a {
-    margin: 0 10px;
-    font-size: 24px;
-    text-decoration: none;
-    transition: color 0.3s ease;
+.footer-inner {
+  position: relative;
+  z-index: 1;
+  padding: 60px 20px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
 }
 
-/* Hover Effect */
-footer .social-icons a:hover {
-    transform: scale(1.2); /* Slightly enlarge on hover */
+.footer-brand,
+.footer-links-section,
+.footer-contact-section,
+.footer-signup-section {
+  flex: 1 1 220px;
+  min-width: 200px;
 }
 
-/* Icon Colors */
-footer .social-icons .fa-facebook {
-    color: #1877F2; /* Facebook Blue */
+.footer-brand h2 {
+  color: #DA706D;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
-footer .social-icons .fa-twitter {
-    color: #1DA1F2; /* Twitter Blue */
+.footer-brand p {
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 0.95em;
 }
 
-footer .social-icons .fa-instagram {
-    color: #E4405F; /* Instagram Gradient Pink */
+.footer-links-section h4,
+.footer-contact-section h4,
+.footer-signup-section h4 {
+  color: #DA706D;
+  margin-bottom: 10px;
+  font-size: 1.1em;
 }
 
-footer .social-icons .fa-tiktok {
-    color: #000000; /* TikTok Black */
+.footer-links-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-footer .social-icons .fa-spotify {
-    color: #1DB954; /* Spotify Green */
+.footer-links-section li {
+  margin-bottom: 6px;
 }
 
-footer .social-icons .fa-amazon  {
-    color: #FF9900; /* Amazon Orange */
+.footer-links-section a {
+  color: #DA706D;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-footer .social-icons .fa-apple {
-    color: #000000; /* Apple Black */
+.footer-links-section a:hover {
+  color: #b8605d;
 }
 
-footer .social-icons .fa-heart {
-    color: #C6002B; /* iHeartRadio Red */
+.footer-contact-section p {
+  margin-bottom: 8px;
+  color: #ccc;
+  font-size: 0.95em;
+  line-height: 1.5;
 }
 
-/* Footer Layout */
-footer {
-    background-color: #DA70D6;
-    color: #fff;
-    padding: 40px 20px;
-    font-family:'Roboto', sans-serif ;
+.footer-contact-section a {
+  color: #DA706D;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-/* Layout for Footer Content */
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #444;
-    margin-bottom: 20px;
+.footer-contact-section a:hover {
+  color: #b8605d;
 }
 
-/* About Us Section */
-.footer-about,
-.footer-episodes,
-.footer-contact {
-    flex: 1 1 30%;
-    margin: 10px;
-    margin-right: 35px;
+.icon {
+  margin-right: 5px;
 }
 
-.footer-about h4,
-.footer-episodes h4,
-.footer-contact h4 {
-    font-size: 25px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    color: #333; /* Highlight color */
+.footer-signup-section p {
+  color: #ccc;
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin-bottom: 15px;
 }
 
-.footer-about p,
-.footer-contact p {
-    line-height: 1.6;
-    text-align: left;
+.footer-signup-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* Recent Episodes Section */
-.footer-episodes ul {
-    list-style: none;
-    padding: 0;
-    text-align: left;
+.footer-signup-section input {
+  padding: 10px;
+  border: 1px solid #DA706D;
+  border-radius: 4px;
+  background-color: #222;
+  color: #fff;
 }
 
-.footer-episodes li {
-    margin-bottom: 5px;
+.footer-signup-section input::placeholder {
+  color: #aaa;
 }
 
-.footer-episodes a {
-    color: #333; /* Link color */
-    text-decoration: none;
-    color: #fff;
+.footer-signup-section .btn-signup {
+  padding: 10px;
+  background-color: #DA706D;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.footer-episodes a:hover {
-    text-decoration: underline;
+.footer-signup-section .btn-signup:hover {
+  background-color: #b8605d;
+  transform: scale(1.05);
 }
 
-/* Footer Bottom Section */
 .footer-bottom {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid #444;
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 0.85em;
+  color: #aaa;
 }
 
-.footer-bottom p {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
+.footer-extra-links {
+  margin-top: 10px;
 }
 
-.footer-links {
-    display: flex;
-    gap: 15px;
+.footer-extra-links a {
+  color: #DA706D;
+  margin: 0 8px;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.footer-links a {
-    color: #333;
-    font-size: 16px;
-    text-decoration: none;
+.footer-extra-links a:hover {
+  color: #b8605d;
 }
 
-.footer-links a:hover {
-    text-decoration: underline;
-}
+
+
