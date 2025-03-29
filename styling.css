@@ -18,7 +18,6 @@ body {
     overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
-
 /* Modal overlay */
 .modal {
     display: none; /* Hidden by default */
@@ -114,8 +113,6 @@ body {
     cursor: pointer;
 }
 
-
-
 /* Header and Logo Styles */
 header {
     background-color: #DA70D6;
@@ -130,7 +127,7 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-header .logo img { /* Logo styles correctly placed inside header */
+header .logo img {
     height: 50px;
     width: auto;
     margin-right: 20px;
@@ -139,10 +136,10 @@ header .logo img { /* Logo styles correctly placed inside header */
 /* Navigation Styles */
 nav {
     display: flex;
-    justify-content: center; /* Centers the navigation menu */
+    justify-content: center;
     align-items: center;
-    width: 100%; /* Ensures the nav spans the full width */
-    position: relative; /* Keeps the navigation relative to the header */
+    width: 100%;
+    position: relative;
 }
 
 nav ul {
@@ -150,19 +147,19 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 40px; /* Add consistent spacing between menu items */
+    gap: 40px;
 }
 
 nav ul li {
     margin: 0;
-    position: relative; /* Ensures positioning for the dropdown */
+    position: relative;
 }
 
 nav ul li a {
     text-decoration: none;
     color: black; 
     font-size: 28px; 
-    font-family: 'Roboto', sans-serif; /* Consistent font family */
+    font-family: 'Roboto', sans-serif;
     transition: color 0.3s;
     margin-right: 20px; 
 }
@@ -177,9 +174,8 @@ nav ul li .dropdown-content {
     position: absolute;
     background-color: #DA70D6;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
     z-index: 1;
-    
 }
 
 nav ul li:hover .dropdown-content {
@@ -191,9 +187,9 @@ nav ul li .dropdown-content a {
     padding: 10px 14px;
     text-decoration: none;
     display: block;
-    font-family: 'Roboto', sans-serif; /* Consistent font family */
-    font-size: 20px; /* Adjusted font size */
-    transition: background-color 0.3s; /* Smooth hover effect */
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    transition: background-color 0.3s;
 }
 
 nav ul li .dropdown-content a:hover {
@@ -202,11 +198,11 @@ nav ul li .dropdown-content a:hover {
 
 /* Add spacing between Shop and Fan Club */
 .nav-item {
-    margin-right: 30px; /* Adjust the value as needed */
+    margin-right: 30px;
 }
 
 .nav-item.fanclub {
-    margin-left: 30px; /* Adjust the value as needed */
+    margin-left: 30px;
 }
 
 /* Search Bar Styles */
@@ -222,17 +218,17 @@ nav ul li .dropdown-content a:hover {
     z-index: 1100;
     border-radius: 5px;
     transition: all 0.3s ease;
-    width: 50%; /* Adjusted width */
-    margin: 0 auto; /* Center horizontally */
+    width: 50%;
+    margin: 0 auto;
 }
 
 .search-bar input {
-    width: calc(100% - 110px); /* Account for button width */
+    width: calc(100% - 110px);
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    box-sizing: border-box; /* Include padding in width calculation */
+    box-sizing: border-box;
     vertical-align: middle;
 }
 
@@ -244,8 +240,8 @@ nav ul li .dropdown-content a:hover {
     border-radius: 5px;
     cursor: grab;
     font-size: 16px;
-    width: 100px; /* Fixed button width */
-    box-sizing: border-box; /* Include padding in width calculation */
+    width: 100px;
+    box-sizing: border-box;
     vertical-align: middle;
 }
 
@@ -265,41 +261,36 @@ nav ul li .dropdown-content a:hover {
     cursor: pointer;
 }
 
-close-btn:hover {
+.close-btn:hover {
     color: white;
 }
 
-
-
-
-
 /* Hero Image */
 .hero-image {
-    margin-top: 0;  /* Remove margin if you want it directly under the header */
-    margin-bottom: 40px; /* Add margin-bottom to create separation */
+    margin-top: 0;
+    margin-bottom: 40px;
     width: 100%;
-    height: 100vh; /* Adjust height as needed */
-    background-image: url('Tajova web images/Black Neon Welcome Bank Podcast Cover (Website).jpg'); /* Set your background image */
+    height: 100vh;
+    background-image: url('Tajova web images/Black Neon Welcome Bank Podcast Cover (Website).jpg');
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white; /* Text color for overlay */
+    color: white;
     text-align: center;
-    position: relative; /* Ensures hero content is positioned within hero-image */
+    position: relative;
 }
 
 .hero-image .hero-message {
-    position: relative; /* Ensure correct placement within hero-image */
-    background: none; /* Remove the background */
-    padding: 20px; /* Optional: Add padding if needed */
+    position: relative;
+    padding: 20px;
 }
 
 .hero-image .hero-message h1 {
-    font-size: 40px; /* Example font size for h1 */
-    font-family: 'Roboto', sans-serif;  /* Consistent font family */
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
     color: #fff;
     line-height: 1.2;
     margin-bottom: 20px;
@@ -307,8 +298,8 @@ close-btn:hover {
 }
 
 .hero-image .hero-message p {
-    font-size: 24px; /* Increased font size */
-    font-family: 'Roboto', sans-serif;  /* Consistent font family */
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
     color: #FFD700;
     line-height: 1.8;
     margin-bottom: 20px;
@@ -318,202 +309,175 @@ close-btn:hover {
 /* CTA Button */
 .cta-button {
     padding: 10px 20px;
-    background-color: transparent; /* Transparent background initially */
+    background-color: transparent;
     color: #FFD700;
     border: 2px solid #DA70D6;
     cursor: pointer;
     font-size: 22px;
     transition: background-color 0.3s, color 0.3s;
     border-radius: 5px;
-    text-decoration: none; /* Remove underline from the link */ 
+    text-decoration: none;
 }
 
 .cta-button:hover {
-    background-color: #000; 
+    background-color: #000;
     color: white;
 }
 
-
-
-
-
-
-
 /* Social Media Section */
 .Social-media-section {
-    text-align: center; /* Center text within the section */
-    padding: 50px 20px; /* Add some padding around the section */
-    margin-bottom: -30px; /* Reduce margin-bottom to decrease distance */
-    margin-top: 40px; /* Adds margin-top to create separation */
+    text-align: center;
+    padding: 50px 20px;
+    margin-bottom: -30px;
+    margin-top: 40px;
 }
 
 .Social-media-section h2 {
-    font-size: 39px; /* Increase the font size for heading */
-    margin-bottom: 20px; /* Add space below the heading */
-    font-weight: bold; /* Make the heading bold */
-    color: #FFFFFF; /* White color for the heading to contrast with black background */
+    font-size: 39px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
 }
 
 .Social-media-section p {
-    font-size: 20px; /* Increase the font size for paragraph */
-    color: #E0E0E0; /* Light gray color for the paragraph to ensure good contrast with black */
-    line-height: 1.6; /* Improve readability by increasing line height */
-    margin-bottom: 30px; /* Add space below the paragraph */
+    font-size: 20px;
+    color: #E0E0E0;
+    line-height: 1.6;
+    margin-bottom: 30px;
 }
 
-/* Social-media-section Social Icons */
-.Social-media-section .social-icons {
+.social-icons {
     margin-top: 20px;
-    display: flex; /* Flexbox for better alignment */
-    justify-content: center; /* Center the icons */
-    gap: 30px; /* Increase space between icons */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
 
-.Social-media-section .social-icons a {
-    font-size: 60px; /* Increase font size for larger icons */
+.social-icons a {
+    font-size: 60px;
     text-decoration: none;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Hover Effect */
-.Social-media-section .social-icons a:hover {
-    transform: scale(1.2); /* Slightly enlarge on hover */
+.social-icons a:hover {
+    transform: scale(1.2);
 }
 
-/* Icon Colors */
-.Social-media-section .social-icons .fa-twitter {
-    color: #1DA1F2; /* Twitter Blue */
-}
+.fa-twitter { color: #1DA1F2; }
+.fa-instagram { color: #E4405F; }
+.fa-tiktok { color: #FF2A68; }
+.fa-spotify { color: #1DB954; }
+.fa-amazon { color: #FF9900; }
+.fa-youtube { color: #ff0000; }
 
-.Social-media-section .social-icons .fa-instagram {
-    color: #E4405F; /* Instagram Gradient Pink */
-}
-
-.Social-media-section .social-icons .fa-tiktok {
-    color: #FF2A68; /* Neon Pink color for TikTok */
-}
-
-.Social-media-section .social-icons .fa-spotify {
-    color: #1DB954; /* Spotify Green */
-}
-
-.Social-media-section .social-icons .fa-amazon {
-    color: #FF9900; /* Amazon Orange */
-}
-
-.Social-media-section .social-icons .fa-youtube {
-    color: #ff0000; /* Youtube Red */
-}
-
-
-
-
-
-
-/* Episode Section Styles */
+/* Episode Section */
 .Episode-section {
-    padding: 50px 20px;
-    text-align: left; /* Align text to the left */
-    margin-top: -30px; /* Reduce margin-top to decrease distance */
-    margin-bottom: 70px; /* Add margin-bottom to create separation */   
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 40px;
 }
 
 .Episode-section h2 {
-    text-align: center; /* Center the h2 and p elements */
-    font-size: 39px; /* Increase the font size for h2 and p */
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
 }
 
 .Episode-section p {
-    text-align: center; /* Centre the paragraph */
-    font-size: 20px; /* Increase font size */
-    margin-bottom: 60px; /* Add margin-bottom to create separation */
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 40px;
 }
 
+/* Episode Grid */
 .Episode-grid {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping of episodes */
-    gap: 10px; /* Reduced space between episode cards */
-    margin-top: 60px; /* Add margin-top to create separation */
+    flex-wrap: nowrap; /* Prevent wrapping to the next line */
+    gap: 10px; /* Reduce the gap between cards */
+    justify-content: center; /* Center the cards horizontally */
 }
 
+/* Episode Card */
 .Episode-card {
     background-color: #333;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    flex: 1 1 calc(25% - 10px); /* Four cards per row */
+    flex: 1 1 calc(25% - 10px); /* Each card takes 25% of the row minus the gap */
+    max-width: calc(25% - 10px); /* Ensure the max width matches the flex-basis */
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px; /* Add margin-bottom to create separation */
+    margin-bottom: 0; /* Remove bottom margin to prevent extra spacing */
 }
 
+/* Episode Thumbnail */
 .Episode-thumbnail {
     width: 100%;
     height: auto;
-    border: 5px solid #DA70D6; /* Frame the thumbnail */
-    border-radius: 10px 10px 0 0; /* Rounded corners for the top */
+    border: 3px solid #DA70D6;
+    border-radius: 10px 10px 0 0;
 }
 
-/* Ensure the episode content takes up available space */
+/* Episode Content */
 .Episode-content {
-    padding: 20px;
+    padding: 10px; /* Reduce padding to save space */
     color: white;
 }
 
+/* Episode Title */
 .episode-title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1rem; /* Reduce font size */
+    margin-bottom: 5px;
 }
 
+/* Episode Description */
 .episode-description {
-    font-size: 1rem;
+    font-size: 0.85rem; /* Reduce font size */
+    margin-bottom: 5px;
+}
+
+/* Episode Meta */
+.episode-meta {
+    font-size: 0.75rem; /* Reduce font size */
+    color: #ccc;
     margin-bottom: 10px;
 }
 
-.episode-meta {
-    font-size: 0.875rem;
-    color: #ccc;
-    margin-bottom: 20px;
-}
-
+/* Episode Buttons */
 .Episode-buttons {
     display: flex;
-    gap: 10px;
-
+    gap: 5px; /* Reduce gap between buttons */
 }
 
 .Episode-buttons .btn {
     background: #DA70D6;
     color: #fff;
-    padding: 10px 15px;
+    padding: 5px 8px; /* Reduce padding */
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s;
+    font-size: 0.8rem; /* Reduce font size */
 }
 
 .Episode-buttons .btn:hover {
     background: #FFD700;
 }
 
-.Episode-section-link a  {
-    text-decoration:none; /* Remove underline from the link */
+.Episode-section-link a {
+    text-decoration: none;
     font-size: 20px;
     color: #DA70D6;
-    margin-top: 30px; /* Add margin-top to create separation */
+    margin-top: 30px;
 }
 
-
-
-
-
-
-/* About Section Styles */
+/* About Section */
 .about-section {
     padding: 30px 10px;
-    text-align: center; /* Center text within the section */
-    background-color: #333; /* Dark background color */
-    margin-top: 30px; /* Add margin-top to create separation */
-    margin-bottom: 30px; /* Add margin-bottom to create separation */
+    text-align: center;
+    background-color: #333;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .about-section .container {
@@ -522,121 +486,112 @@ close-btn:hover {
 }
 
 .about-section h2 {
-    font-size: 36px; /* Font size for the heading */
-    margin-bottom: 20px; /* Add space below the heading */
+    font-size: 36px;
+    margin-bottom: 20px;
     color: #fff;
-    font-weight: bold; /* Make the heading bold */
+    font-weight: bold;
 }
 
 .about-section p {
-    font-size: 18px; /* Font size for the paragraph */
-    font-family: 'Roboto', sans-serif; /* Consistent font family */
-    line-height: 1.6; /* Improve readability by increasing line height */
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
     color: #fff;
-    margin-bottom: 30px; /* Add space below the paragraph */
+    margin-bottom: 30px;
 }
 
-/* Carousel Styles */
+/* ===================== Updated Carousel Section ===================== */
+/* Carousel Container */
+.carousel-container {
+  overflow: hidden;
+  margin: 30px auto;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Carousel */
 .carousel {
-    display: flex;
-    overflow: hidden;
-    margin-top: 30px;
-    position: relative;
-    width: 100%;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
+/* Carousel Items: Each item takes full width */
 .carousel-item {
-    min-width: 100%;
-    text-align: center;
-    transition: transform 0.5s ease-in-out;
+  min-width: 100%;
+  text-align: center;
+  transition: transform 0.5s ease-in-out;
 }
 
+/* Carousel Images */
 .carousel img {
-    border-radius: 50%;
-    width: 400px;
-    height: 400px;
-    margin-bottom: 10px;
-    object-fit: cover;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 10px;
+  object-fit: cover;
 }
 
+/* Carousel Headings */
 .carousel h3 {
-    font-size: 1.5em;
-    color: #fff;
+  font-size: 1.5em;
+  color: #fff;
 }
 
+/* Carousel Paragraphs */
 .carousel p {
-    font-size: 1em;
-    color: #fff;
+  font-size: 1em;
+  color: #fff;
 }
 
+/* Optional: Carousel Controls (for manual navigation) */
 .carousel-controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
 }
 
 .carousel-controls button {
-    background-color: #DA70D6;
-    color: #333;
-    border: none;
-    font-size: 18px;
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: #DA70D6;
+  color: #333;
+  border: none;
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .carousel-controls button:hover {
-    background:rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.8);
 }
 
-
-
-
-
-/* Visit Our Shop Section Styles */
+/* ===================== Visit Our Shop Section with Card Flip Effect ===================== */
 .visit-section {
     padding: 50px 20px;
-    text-align: center; /* Center text within the section */
-    margin-top: 30px; /* Add margin-top to create separation */
-    margin-bottom: 30px; /* Add margin-bottom to create separation */
+    text-align: center;
+    margin: 30px 0;
 }
 
 .visit-section h2 {
-    font-size: 36px; /* Font size for the heading */
-    margin-bottom: 20px; /* Add space below the heading */
+    font-size: 36px;
+    margin-bottom: 20px;
     color: #fff;
-    font-weight: bold; /* Make the heading bold */
+    font-weight: bold;
 }
 
 .visit-section p {
-    font-size: 18px; /* Font size for the paragraph */
-    font-family: 'Roboto', sans-serif; /* Consistent font family */
-    line-height: 1.6; /* Improve readability by increasing line height */
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
     color: #fff;
-    margin-bottom: 30px; /* Add space below the paragraph */
+    margin-bottom: 30px;
 }
 
-.visit-section .btn {
-    background-color: transparent; /* Transparent background initially */
-    border:2px solid #DA70D6; /* Border color */
-    color: #FFD700;
-    cursor: pointer;
-    padding: 10px 20px;
-    text-decoration: none; /* Remove underline from the link */
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.visit-section .btn:hover {
-    background-color: #DA70D6;
-    color: white;
-}
-
-/* Styles for the shop grid and shop cards in the visit section */
-.visit-section .shop-grid {
+/* Container for the shop cards */
+.shop-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -644,43 +599,70 @@ close-btn:hover {
     margin-top: 20px;
 }
 
-.visit-section .shop-card {
-    background-color: #333;
+/* Each card container with a constrained maximum width */
+.shop-card {
+    perspective: 1000px; /* Enables 3D flip effect */
+    margin: 10px;
+    max-width: 300px;  /* Limits the size of the card/image */
+    width: 100%;
+}
+
+/* The card inner container that flips */
+.card-inner {
+    position: relative;
+    width: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Flip the card on hover/focus */
+.shop-card:hover .card-inner,
+.shop-card:focus-within .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Common styles for both faces */
+.card-face {
+    backface-visibility: hidden;
     border: 2px solid #DA70D6;
     border-radius: 10px;
-    overflow: hidden;
-    width: calc(20% - 20px); /* Adjust the width as needed */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-color: #333;
 }
 
-.visit-section .shop-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+/* Front face: in normal flow so its size is defined by the image */
+.card-front {
+    position: relative;
 }
 
-.visit-section .shop-thumbnail {
+/* Back face: overlays the front face */
+.card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(180deg);
+    color: #FFD700;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Adjust as needed so content fits inside */
+}
+
+/* Image styling: constrain the image to the card size */
+.shop-thumbnail {
+    display: block;
     width: 100%;
     height: auto;
-    border-bottom: 2px solid #DA70D6;
+    border-radius: 0;
+    object-fit: contain; /* Ensures the full image is visible without cropping */
 }
 
-.visit-section .shop-content {
-    padding: 15px;
-    text-align: center;
-}
-
-.visit-section .shop-title {
-    font-size: 24px;
-    color: #FFD700;
-    margin-bottom: 80px;
-}
-
-.visit-section .cta-buttons {
-    margin-top: 80px;
-}
-
-.visit-section .cta-link {
+/* CTA Link (e.g., "Buy Now") */
+.cta-link {
     display: inline-block;
     padding: 10px 20px;
     background-color: #DA70D6;
@@ -688,34 +670,39 @@ close-btn:hover {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
+    margin-top: 10px; /* Space above the button */
 }
 
-.visit-section .cta-link:hover {
+.cta-link:hover {
     background-color: #FFD700;
     color: #000;
 }
 
-/* Fan Club Section Styles */
+/* Additional CTA Buttons (e.g., "Visit Shop") */
+.cta-buttons {
+    margin-top: 80px;
+}
+
+/* ===================== Fan Club Section ===================== */
 .Fan-club-section {
     padding: 50px 20px;
-    text-align: center; /* Center text within the section */
-    margin-top: 30px; /* Add margin-top to create separation */
-    margin-bottom: 30px; /* Add margin-bottom to create separation */
+    text-align: center;
+    margin: 30px 0;
 }
 
 .Fan-club-section h2 {
-    font-size: 36px; /* Font size for the heading */
-    margin-bottom: 20px; /* Add space below the heading */
+    font-size: 36px;
+    margin-bottom: 20px;
     color: #fff;
-    font-weight: bold; /* Make the heading bold */
+    font-weight: bold;
 }
 
 .Fan-club-section p {
-    font-size: 18px; /* Font size for the paragraph */
-    font-family: 'Roboto', sans-serif; /* Consistent font family */
-    line-height: 1.6; /* Improve readability by increasing line height */
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
     color: #fff;
-    margin-bottom: 30px; /* Add space below the paragraph */
+    margin-bottom: 30px;
 }
 
 .Fan-club-section .cta-link {
@@ -733,25 +720,20 @@ close-btn:hover {
     color: #000;
 }
 
-/*******************************************************
-  1) Overall Footer Setup
-  2) Angled Background
-  3) Layout + Typography
-  4) Footer Bottom Bar
-*******************************************************/
 
-/* 1) Overall Footer Setup */
+
+
+
+
+
+/* ===================== Footer ===================== */
 .angled-footer {
   position: relative;
-  background-color: #1B001B; /* Deep Muted Purple background */
+  background-color: #1B001B;
   color: #fff;
   font-family: 'Arial', sans-serif;
 }
 
-/* 
-  2) Angled Background:
-     Using a pseudo-element to create a diagonal shape at the top.
-*/
 .angled-footer::before {
   content: "";
   position: absolute;
@@ -759,13 +741,12 @@ close-btn:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #1B001B; /* Same as footer background */
-  transform: skewY(-3deg); /* Adjust angle as needed */
+  background-color: #1B001B;
+  transform: skewY(-3deg);
   transform-origin: top left;
   z-index: 0;
 }
 
-/* Ensure all footer content sits on top of the pseudo-element */
 .footer-inner {
   position: relative;
   z-index: 1;
@@ -776,7 +757,6 @@ close-btn:hover {
   gap: 30px;
 }
 
-/* 3) Layout + Typography */
 .footer-brand,
 .footer-links-section,
 .footer-contact-section,
@@ -786,7 +766,7 @@ close-btn:hover {
 }
 
 .footer-brand h2 {
-  color: #DA706D; /* Orchid accent color */
+  color: #DA706D;
   margin-bottom: 15px;
   font-size: 1.5em;
   font-weight: bold;
@@ -801,7 +781,7 @@ close-btn:hover {
 .footer-links-section h4,
 .footer-contact-section h4,
 .footer-signup-section h4 {
-  color: #DA706D; /* Orchid accent for section headings */
+  color: #DA706D;
   margin-bottom: 10px;
   font-size: 1.1em;
 }
@@ -826,26 +806,27 @@ close-btn:hover {
   color: #b8605d;
 }
 
-/* Contact Section */
 .footer-contact-section p {
   margin-bottom: 8px;
   color: #ccc;
   font-size: 0.95em;
   line-height: 1.5;
 }
+
 .footer-contact-section a {
   color: #DA706D;
   text-decoration: none;
   transition: color 0.3s;
 }
+
 .footer-contact-section a:hover {
   color: #b8605d;
 }
+
 .icon {
   margin-right: 5px;
 }
 
-/* Sign Up Form */
 .footer-signup-section p {
   color: #ccc;
   font-size: 0.95em;
@@ -886,7 +867,6 @@ close-btn:hover {
   transform: scale(1.05);
 }
 
-/* 4) Footer Bottom Bar */
 .footer-bottom {
   position: relative;
   z-index: 1;
@@ -912,10 +892,7 @@ close-btn:hover {
   color: #b8605d;
 }
 
-
-
-
-/* Media Queries for responsiveness */
+/* ===================== Media Queries ===================== */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -927,9 +904,9 @@ close-btn:hover {
     }
 
     nav ul {
-        display: none; /* Hide the navigation menu */
+        display: none;
         flex-direction: column;
-        gap: 20px; /* Adjust the gap for mobile view */
+        gap: 20px;
         position: absolute;
         top: 60px;
         right: 0;
@@ -941,8 +918,8 @@ close-btn:hover {
     }
 
     nav ul li a {
-        font-size: 24px; /* Adjust font size for mobile view */
-        margin-right: 0; /* Remove right margin for mobile view */
+        font-size: 24px;
+        margin-right: 0;
         color: white;
     }
 
@@ -957,7 +934,7 @@ close-btn:hover {
     }
 
     .Episode-card {
-        width: 90%; /* Adjust width for mobile view */
+        width: 90%;
     }
 
     .about-section {
@@ -969,12 +946,12 @@ close-btn:hover {
     }
 
     .social-icons {
-        flex-direction: row; /* Keep social icons in a row */
+        flex-direction: row;
         gap: 10px;
     }
 
     .social-icons  {
-        font-size: 10px; /* Reduce size of social icons */
+        font-size: 10px;
     }
 
     .Episode-buttons .btn {
@@ -987,17 +964,17 @@ close-btn:hover {
     }
 
     .visit-section .shop-card {
-        width: calc(50% - 20px); /* Two cards per row */
+        width: calc(50% - 20px);
     }
 
     .hamburger-menu {
-        display: flex; /* Show the hamburger menu icon */
+        display: flex;
     }
 }
 
 @media (max-width: 480px) {
     nav ul li a {
-        font-size: 20px; /* Further adjust font size for smaller screens */
+        font-size: 20px;
     }
 
     .hero-message {
@@ -1013,7 +990,7 @@ close-btn:hover {
     }
 
     .social-icons a {
-        font-size: 18px; /* Further reduce size of social icons */
+        font-size: 18px;
     }
 
     .Episode-buttons .btn {
@@ -1025,7 +1002,7 @@ close-btn:hover {
     }
 
     .visit-section .shop-card {
-        width: 90%; /* One card per row */
+        width: 90%;
     }
 }
 
@@ -1048,3 +1025,7 @@ close-btn:hover {
 nav ul.show {
     display: flex;
 }
+
+
+
+

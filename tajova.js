@@ -1,145 +1,130 @@
-// Get elements for navigation and search bar
+// ----------------------
+// Navigation & Search Bar
+// ----------------------
 const searchIcon = document.getElementById('searchIcon');
 const searchBar = document.getElementById('searchBar');
-const nav = document.querySelector('nav'); // Selecting nav directly
+const nav = document.querySelector('nav');
 const closeSearch = document.getElementById('closeSearch');
-const searchInput = document.getElementById('Searchinput'); // Correct ID
+const searchInput = document.getElementById('Searchinput');
 
-// Show search bar and hide navigation menu when the search icon is clicked
 searchIcon.addEventListener('click', () => {
-    searchBar.style.display = 'flex';
-    nav.style.display = 'none';
-    searchInput.focus();
+  searchBar.style.display = 'flex';
+  nav.style.display = 'none';
+  searchInput.focus();
 });
 
-// Close search bar and show navigation menu when 'X' is clicked
 closeSearch.addEventListener('click', () => {
-    searchBar.style.display = 'none';
-    nav.style.display = 'flex';
+  searchBar.style.display = 'none';
+  nav.style.display = 'flex';
 });
 
-// Handle search input (replace with actual search logic)
 searchInput.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-        const searchTerm = searchInput.value;
-        console.log('Searching for:', searchTerm);
-        // Example: Perform a search on your page content or make a server request
-    }
+  if (event.key === 'Enter') {
+    const searchTerm = searchInput.value;
+    console.log('Searching for:', searchTerm);
+    // Add your search logic here if needed
+  }
 });
 
-// Display the modal as soon as the page loads
+// ----------------------
+// Modal Functionality
+// ----------------------
 window.addEventListener('load', () => {
-    const leadModal = document.getElementById('leadModal');
-    if (leadModal) {
-        leadModal.style.display = 'block';
-    }
+  const leadModal = document.getElementById('leadModal');
+  if (leadModal) {
+    leadModal.style.display = 'block';
+  }
 });
 
-// Close the modal when the user clicks on the close button
 const closeModal = document.getElementById('closeModal');
 if (closeModal) {
-    closeModal.addEventListener('click', () => {
-        document.getElementById('leadModal').style.display = 'none';
-    });
+  closeModal.addEventListener('click', () => {
+    document.getElementById('leadModal').style.display = 'none';
+  });
 }
 
-// Handle modal lead form submission
+// Modal Lead Form Submission
 const leadForm = document.getElementById('leadForm');
 if (leadForm) {
-    leadForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-
-        try {
-            const response = await fetch('http://localhost:3000/api/leads', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, email })
-            });
-
-            const result = await response.json();
-            if (response.ok) {
-                alert(result.message);
-                document.getElementById('leadModal').style.display = 'none';
-            } else {
-                alert(result.message);
-            }
-        } catch (error) {
-            alert('An error occurred while submitting your information.');
-        }
-    });
+  leadForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    try {
+      const response = await fetch('http://localhost:3000/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email })
+      });
+      const result = await response.json();
+      if (response.ok) {
+        alert(result.message);
+        document.getElementById('leadModal').style.display = 'none';
+      } else {
+        alert(result.message);
+      }
+    } catch (error) {
+      alert('An error occurred while submitting your information.');
+    }
+  });
 }
 
-// Handle footer lead form submission
+// ----------------------
+// Footer Lead Form Submission
+// ----------------------
 const footerLeadForm = document.getElementById('footerLeadForm');
 if (footerLeadForm) {
-    footerLeadForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        const name = document.getElementById('footerName').value;
-        const email = document.getElementById('footerEmail').value;
-
-        try {
-            const response = await fetch('/api/leads', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email })
-            });
-
-            if (response.ok) {
-                alert('Thank you for signing up!');
-                footerLeadForm.reset();
-            } else {
-                alert('Failed to sign up. Please try again.');
-            }
-        } catch (error) {
-            console.error('Error submitting lead:', error);
-            alert('An error occurred. Please try again.');
-        }
-    });
+  footerLeadForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const name = document.getElementById('footerName').value;
+    const email = document.getElementById('footerEmail').value;
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email })
+      });
+      if (response.ok) {
+        alert('Thank you for signing up!');
+        footerLeadForm.reset();
+      } else {
+        alert('Failed to sign up. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting lead:', error);
+      alert('An error occurred. Please try again.');
+    }
+  });
 }
 
-// Carousel functionality
+// ----------------------
+// Carousel Functionality
+// ----------------------
 document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.querySelector('.carousel');
     const items = document.querySelectorAll('.carousel-item');
-    const prevButton = document.getElementById('prev');
-    const nextButton = document.getElementById('next');
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const navMenu = document.querySelector('nav ul');
 
-    // Toggle navigation menu for mobile
-    hamburgerMenu.addEventListener('click', function () {
-        navMenu.classList.toggle('show');
-    });
-
-    // Initialize carousel index
-    let currentIndex = 0;
+    // Custom sequence for the profiles
+    const sequence = [0, 1, 2, 1, 0, 1, 2]; // Talia → Josh → Valentine → Josh → Talia → Josh → Valentine
+    let currentIndex = 0; // Start at the first profile in the sequence
 
     // Function to update carousel position
     const updateCarousel = () => {
         items.forEach((item, index) => {
-            item.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
+            if (index === sequence[currentIndex]) {
+                item.style.display = 'block'; // Show the current profile
+                item.style.transform = 'translateX(0)'; // Center the current profile
+            } else {
+                item.style.display = 'none'; // Hide other profiles
+            }
         });
     };
 
-    // Function to handle carousel navigation
-    const navigateCarousel = (direction) => {
-        if (direction === 'prev') {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
-        } else if (direction === 'next') {
-            currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
-        }
+    // Automatically move the carousel every 3 seconds
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % sequence.length; // Move to the next profile in the sequence
         updateCarousel();
-    };
-
-    // Add event listeners for carousel navigation buttons
-    prevButton.addEventListener('click', () => navigateCarousel('prev'));
-    nextButton.addEventListener('click', () => navigateCarousel('next'));
+    }, 3000);
 
     // Initialize the carousel
     updateCarousel();
