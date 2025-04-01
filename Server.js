@@ -1,6 +1,6 @@
 require('dotenv').config(); // Load environment variables
 console.log("MONGO_URI from .env:", process.env.MONGO_URI);
-console.log("Current directory:", process.cwd()); // Check current working directory
+console.log("Current directory:", process.cwd());
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -12,24 +12,20 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Use Helmet to set secure HTTP headers
+// Use Helmet for secure HTTP headers
 app.use(helmet());
 
-// Setup CORS (restrict this to your trusted development domain)
-// For example, if you're using Live Server on localhost:5500
+// Setup CORS (adjust the origin to match your front-end; here it's set to port 5500)
 app.use(cors({
-    origin: ['http://127.0.0.1:5500'], // Adjust to your actual frontend domain/port
+    origin: ['http://127.0.0.1:5500'],
     methods: ['GET', 'POST']
 }));
 
 // Middleware for JSON parsing
 app.use(bodyParser.json());
 
-
-
 // Serve static files from the "Tajova web images" directory
-app.use('/images', express.static(path.join(__dirname, 'Tajova web images')));
-
+app.use('/images', express.static(path.join(__dirname, 'public images')));
 
 // Ensure MONGO_URI is defined
 if (!process.env.MONGO_URI) {
@@ -45,25 +41,25 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => {
     console.log('✅ MongoDB connected successfully');
 
-    // Define Episode Schema with validation
+    // Define Episode Schema with validation (thumbnail is required and uses an absolute URL)
     const episodeSchema = new mongoose.Schema({
         episodeNumber: { type: Number, required: true, unique: true },
-        title: { type: String, required: true },
-        summary: { type: String, required: true },
-        thumbnail: { type: String, required: true },
-        audioUrl: { type: String, required: true }
+        title:         { type: String, required: true },
+        summary:       { type: String, required: true },
+        thumbnail:     { type: String, required: true },
+        audioUrl:      { type: String, required: true }
     });
 
     const Episode = mongoose.model('Episode', episodeSchema);
 
     // ----- BEGIN: SEEDING LOGIC -----
-    // Sample data for Episodes 1 to 8
+    // Sample data for Episodes 1 to 8 with absolute thumbnail URLs
     const seedEpisodes = [
       {
         episodeNumber: 1,
         title: "Episode 1: A New Beginning",
         summary: "Dive into our first episode where we explore the journey of the Third Opinion Podcast and how we came to be.",
-        thumbnail: "http://localhost:3000/images/NEW%20EPISODES%20THUMBNAIL.png",
+        thumbnail: "http://localhost:3000/images/Episodecardimage.png",
         audioUrl: "https://example.com/audio1.mp3"
       },
       {
@@ -117,7 +113,7 @@ mongoose.connect(process.env.MONGO_URI, {
       }
     ];
 
-    // Updated seeding logic using promises (no callback)
+    // Updated seeding logic using promises
     Episode.countDocuments({})
       .then(count => {
           if (count === 0) {
@@ -160,10 +156,8 @@ mongoose.connect(process.env.MONGO_URI, {
       if (!name || !email) {
           return res.status(400).json({ message: 'Name and Email are required.' });
       }
-
-      // Save the lead to the database or an array
       leads.push({ name, email, submittedAt: new Date() });
-      res.status(201).json({ message: 'Thank you for signing up!' });
+      res.status(201).json({ message: 'Lead captured successfully!' });
     });
 
     // Finally, start listening after the DB logic is set
