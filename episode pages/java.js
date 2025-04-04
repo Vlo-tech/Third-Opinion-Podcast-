@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log("Episode", episode.episodeNumber, "thumbnail:", episode.thumbnail);
           const episodeCard = `
             <div class="episode-card">
-              <a href="episodes2.html?episodeNumber=${episode.episodeNumber}">
+              <a href="episode2.html?episodeNumber=${episode.episodeNumber}">
                 <img src="${episode.thumbnail}" alt="Episode ${episode.episodeNumber} Cover" class="episode-image">
                 <div class="play-button" data-audio-url="${episode.audioUrl}">&#9658;</div>
               </a>
