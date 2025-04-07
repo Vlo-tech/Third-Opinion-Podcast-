@@ -245,6 +245,7 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
+  margin-bottom: 3rem;
 }
 
 .video-card {
@@ -289,6 +290,7 @@ main {
   background-color: #1B001B;
   color: #fff;
   font-family: 'Arial', sans-serif;
+  margin-top: 3rem;
 }
 
 .angled-footer::before {
