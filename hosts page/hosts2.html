@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Host Profile | Third Opinion Podcast</title>
+  <link rel="stylesheet" href="stylo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Dynamic Host Page Specific Styles */
+    main {
+      margin-top: 100px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+      text-align: left;
+    }
+    .host-profile {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+    }
+    .host-profile img {
+      flex: 1 1 300px;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .host-profile img:hover {
+      transform: scale(1.05);
+    }
+    .host-details {
+      flex: 1 1 300px;
+      padding: 20px;
+    }
+    .host-details h1 {
+      color: #DA70D6;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .host-details p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+    .host-details a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #DA70D6;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .host-details a:hover {
+      background: #C65AC3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header (can be a simplified version or reuse the same as hosts.html) -->
+  <header>
+    <div class="logo">
+      <a href="../index 4.html">
+        <img src="/images/logo.jpg" alt="Third Opinion Podcast Logo">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../Booking page/booking.html">Bookings</a></li>
+        <li><a href="../episode pages/episodes.html">Episodes</a></li>
+        <li><a href="hosts2.html?host=talia">The Hosts</a></li>
+        <li><a href="../Shop pages/shopoverview.html">Shop</a></li>
+        <li><a href="../fanclub.html">Fan Club</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="host-profile" class="host-profile">
+      <!-- Host profile content will be injected via JavaScript -->
+    </section>
+  </main>
+
+  <script>
+    // Utility function to get URL query parameters
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    // Host Data
+    const hostsData = {
+      talia: {
+        name: "Talia",
+        image: "hosts images/Third Opinion Podcast Thumbnail talia .jpg",
+        description: "Talia is a creative visionary with a passion for storytelling. Her energy and deep insights bring our episodes to life. Learn more about her journey and unique perspective.",
+        profileLink: "Talia2.html"
+      },
+      josh: {
+        name: "Josh",
+        image: "hosts images/third opinion hosts image 3 .jpg",
+        description: "Josh offers analytical depth combined with humor. His industry insights and relaxed style create balanced discussions. Discover more about his background and perspective.",
+        profileLink: "Josh2.html"
+      },
+      valentine: {
+        name: "Valentine",
+        image: "hosts images/Third Opinion Podcast Thumbnail.jpg",
+        description: "Valentine connects with guests and listeners with empathy and balance. Her thoughtful approach adds warmth and depth to our conversations. Explore her story and vision.",
+        profileLink: "valentine.html"
+      }
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const hostParam = getQueryParam("host");
+      const hostProfileContainer = document.getElementById("host-profile");
+
+      if (hostsData[hostParam]) {
+        const host = hostsData[hostParam];
+        hostProfileContainer.innerHTML = `
+          <div class="host-details">
+            <h1>${host.name}</h1>
+            <p>${host.description}</p>
+            <a href="${host.profileLink}">View Full Profile</a>
+          </div>
+          <div class="host-image">
+            <img src="${host.image}" alt="${host.name}">
+          </div>
+        `;
+      } else {
+        hostProfileContainer.innerHTML = `<h2>Host Not Found</h2>`;
+      }
+    });
+  </script>
+</body>
+</html>

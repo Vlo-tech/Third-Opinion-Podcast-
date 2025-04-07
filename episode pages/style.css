@@ -168,6 +168,14 @@ close-btn:hover {
 }
 
 
+
+/* Add your styles here */
+
+.hidden-audio {
+  display: none;
+}
+
+
 /* Main Content Styles */
 main {
   max-width: 1200px;

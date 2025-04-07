@@ -25,12 +25,16 @@ app.use(cors({
 // Middleware for JSON parsing
 app.use(bodyParser.json());
 
+
 // Serve static files from the "Tajova web images" directory
 app.use('/public/images', express.static(path.join(__dirname, 'public images'), {
-  setHeaders: (res, path) => {
-    console.log(`Serving file: ${path}`);
+  setHeaders: (res, filePath) => {
+    console.log(`Serving file: ${filePath}`);
+    // Allow the image to be loaded cross-origin
+    res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
   }
 }));
+
 
 // Ensure MONGO_URI is defined
 if (!process.env.MONGO_URI) {

@@ -1,486 +1,452 @@
 /* Global Styles */
 body {
-    font-family: 'Roboto', sans-serif; /* Consistent font family */
-    background-color: black;
-    color: white;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;  
-    text-align: center;
-    overflow-x: hidden; /* Prevent horizontal overflow */
+  font-family: 'Roboto', sans-serif;
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: center;
+  overflow-x: hidden;
 }
 
 /* Header and Logo Styles */
 header {
-    background-color: #DA70D6;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #DA70D6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-header .logo img { /* Logo styles correctly placed inside header */
-    height: 50px;
-    width: auto;
-    margin-right: 20px;
+header .logo img {
+  height: 50px;
+  width: auto;
+  margin-right: 20px;
 }
 
 /* Navigation Styles */
 nav {
-    display: flex;
-    justify-content: center; /* Centers the navigation menu */
-    align-items: center;
-    width: 100%; /* Ensures the nav spans the full width */
-    position: relative; /* Keeps the navigation relative to the header */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
 }
 
 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 40px; /* Add consistent spacing between menu items */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 40px;
 }
 
 nav ul li {
-    margin: 0;
-    position: relative; /* Ensures positioning for the dropdown */
+  margin: 0;
+  position: relative;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: black; 
-    font-size: 28px; 
-    font-family: 'Roboto', sans-serif; /* Consistent font family */
-    transition: color 0.3s;
-    margin-right: 20px; 
+  text-decoration: none;
+  color: black;
+  font-size: 28px;
+  font-family: 'Roboto', sans-serif;
+  transition: color 0.3s;
+  margin-right: 20px;
 }
 
 nav ul li a:hover {
-    color: white; 
+  color: white;
 }
 
 /* Dropdown Menu Styles */
 nav ul li .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #DA70D6;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: #DA70D6;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
 nav ul li:hover .dropdown-content {
-    display: block;
+  display: block;
 }
 
 nav ul li .dropdown-content a {
-    color: black;
-    padding: 10px 14px;
-    text-decoration: none;
-    display: block;
-    font-family: 'Roboto', sans-serif; /* Consistent font family */
-    font-size: 20px; /* Adjusted font size */
-    transition: background-color 0.3s; /* Smooth hover effect */
+  color: black;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  transition: background-color 0.3s;
 }
 
 nav ul li .dropdown-content a:hover {
-    background-color: #C65AC3;
-}
-
-/* Add spacing between Shop and Fan Club */
-.nav-item {
-    margin-right: 30px; /* Adjust the value as needed */
-}
-
-.nav-item.fanclub {
-    margin-left: 30px; /* Adjust the value as needed */
+  background-color: #C65AC3;
 }
 
 /* Search Bar Styles */
 .search-bar {
-    display: none; 
-    position: absolute;
-    top: 50px; 
-    right: 0;
-    left: 0;
-    background-color: white;
-    padding: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1100;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    width: 50%; /* Adjusted width */
-    margin: 0 auto; /* Center horizontally */
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  left: 0;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1100;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .search-bar input {
-    width: calc(100% - 110px); /* Account for button width */
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box; /* Include padding in width calculation */
-    vertical-align: middle;
+  width: calc(100% - 110px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  vertical-align: middle;
 }
 
 .search-bar button {
-    background-color: #DA70D6;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: grab;
-    font-size: 16px;
-    width: 100px; /* Fixed button width */
-    box-sizing: border-box; /* Include padding in width calculation */
-    vertical-align: middle;
+  background-color: #DA70D6;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: grab;
+  font-size: 16px;
+  width: 100px;
+  box-sizing: border-box;
+  vertical-align: middle;
 }
 
 .search-bar button:hover {
-    background-color: #C65AC3;
+  background-color: #C65AC3;
 }
 
 /* Close Button Styles */
 .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: transparent;
-    border: none;
-    color: black;
-    font-size: 20px;
-    cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .close-btn:hover {
-    color: white;
+  color: white;
 }
 
-/* Anchor Defaults */
-a {
-    text-decoration: none;
-    color: var(--text-color);
-}
-
-
-
-/* Responsive Navigation */
-@media (max-width: 768px) {
-    .nav-menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: #DA70D6;
-    }
-    .nav-menu.active {
-    display: flex;
-    }
-    .nav-item {
-    margin: 1rem 0;
-    text-align: center;
-    }
-    .nav-icon {
-    display: flex;
-    }
-}
-
-/* Hosts Page - Modern Split-Screen Layout */
+/* Hosts Page Layout */
 main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-.host-section {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    padding: 2rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s;
+/* Intro Section for Hosts */
+.intro {
+  padding: 2rem;
+  text-align: center;
 }
 
-.host-section:hover {
-    transform: translateY(-5px);
+.intro h1 {
+  font-size: 3rem;
+  color: #DA70D6;
+  margin-bottom: 1rem;
 }
 
-.host-section.reverse {
-    flex-direction: row-reverse;
+.intro p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #ccc;
 }
 
-.host-image {
-    flex: 1;
-    max-width: 500px;
+/* Hosts Grid - Card Layout */
+.hosts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
-.host-image img {
-    width: 100%;
-    border-radius: 8px;
-    object-fit: cover;
+.host-card {
+  background-color: #111;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  overflow: hidden;
+  transition: transform 0.3s;
 }
 
-.host-info {
-    flex: 1;
-    padding: 1rem;
+.host-card:hover {
+  transform: translateY(-5px);
 }
 
-.host-info h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+.host-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
-.host-info p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+.host-details {
+  padding: 1rem;
+}
+
+.host-details h2 {
+  color: #DA70D6;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.host-details p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 1.5rem;
 }
 
 .host-link {
-    display: inline-block;
-    background-color:#DA70D6;
-    color: var(--bg-color);
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    transition: background-color 0.3s, transform 0.3s;
+  display: inline-block;
+  background-color: #DA70D6;
+  color: black;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.3s;
+  text-decoration: none;
 }
 
 .host-link:hover {
-    background-color: var(--accent-color);
-    transform: scale(1.05);
+  background-color: #C65AC3;
+  transform: scale(1.05);
 }
 
-/* Responsive Hosts Layout */
-@media (max-width: 768px) {
-    .host-section {
-    flex-direction: column;
-    text-align: center;
-    }
-    .host-section.reverse {
-    flex-direction: column;
-    }
-    .host-image,
-    .host-info {
-    max-width: 100%;
-    }
-
-    .host-info h2 {
-    font-size: 1.75rem;
-    }
-
-    .host-info p {
-    font-size: 1rem;
-    }
-}
-
-
+/* Video Cards Grid */
 .video-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-    }
-
-    .video-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    background: #000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
-    cursor: pointer;
-    }
-
-  /* Ensure the entire card is clickable */
-    .video-card a {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-    }
-
-    .video-card:hover {
-    transform: translateY(-5px);
-    }
-
-    .video-card video {
-    width: 100%;
-    display: block;
-    }
-
-    .video-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 0.5rem 1rem;
-    text-align: left;
-    }
-
-/* Footer Styles */
-footer {
-    background-color: #DA70D6;
-    color: white;
-    text-align: center;
-    padding: 15px 20px;
-    width: 100%;
-    position: relative;
-    margin-top: auto; /* Ensures footer stays at the bottom of the page */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
 }
 
-/* Footer Social Icons */
-footer .social-icons {
-    margin-top: 10px;
+.video-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+  cursor: pointer;
 }
 
-footer .social-icons a {
-    margin: 0 10px;
-    font-size: 24px;
-    text-decoration: none;
-    transition: color 0.3s ease;
+.video-card a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Hover Effect */
-footer .social-icons a:hover {
-    transform: scale(1.2); /* Slightly enlarge on hover */
+.video-card:hover {
+  transform: translateY(-5px);
 }
 
-/* Icon Colors */
-footer .social-icons .fa-facebook {
-    color: #1877F2; /* Facebook Blue */
+.video-card video {
+  width: 100%;
+  display: block;
 }
 
-footer .social-icons .fa-twitter {
-    color: #1DA1F2; /* Twitter Blue */
+.video-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-align: left;
 }
 
-footer .social-icons .fa-instagram {
-    color: #E4405F; /* Instagram Gradient Pink */
+/* ===================== Footer ===================== */
+.angled-footer {
+  position: relative;
+  background-color: #1B001B;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
 }
 
-footer .social-icons .fa-tiktok {
-    color: #000000; /* TikTok Black */
+.angled-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1B001B;
+  transform: skewY(-3deg);
+  transform-origin: top left;
+  z-index: 0;
 }
 
-footer .social-icons .fa-spotify {
-    color: #1DB954; /* Spotify Green */
+.footer-inner {
+  position: relative;
+  z-index: 1;
+  padding: 60px 20px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
 }
 
-footer .social-icons .fa-amazon  {
-    color: #FF9900; /* Amazon Orange */
+.footer-brand,
+.footer-links-section,
+.footer-contact-section,
+.footer-signup-section {
+  flex: 1 1 220px;
+  min-width: 200px;
 }
 
-footer .social-icons .fa-apple {
-    color: #000000; /* Apple Black */
+.footer-brand h2 {
+  color: #DA706D;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
-footer .social-icons .fa-heart {
-    color: #C6002B; /* iHeartRadio Red */
+.footer-brand p {
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 0.95em;
 }
 
-/* Footer Layout */
-footer {
-    background-color: #DA70D6;
-    color: #fff;
-    padding: 40px 20px;
-    font-family:'Roboto', sans-serif ;
+.footer-links-section h4,
+.footer-contact-section h4,
+.footer-signup-section h4 {
+  color: #DA706D;
+  margin-bottom: 10px;
+  font-size: 1.1em;
 }
 
-/* Layout for Footer Content */
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #444;
-    margin-bottom: 20px;
+.footer-links-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* About Us Section */
-.footer-about,
-.footer-episodes,
-.footer-contact {
-    flex: 1 1 30%;
-    margin: 10px;
-    margin-right: 35px;
+.footer-links-section li {
+  margin-bottom: 6px;
 }
 
-.footer-about h4,
-.footer-episodes h4,
-.footer-contact h4 {
-    font-size: 25px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    color: #333; /* Highlight color */
+.footer-links-section a {
+  color: #DA706D;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.footer-about p,
-.footer-contact p {
-    line-height: 1.6;
-    text-align: left;
+.footer-links-section a:hover {
+  color: #b8605d;
 }
 
-/* Recent Episodes Section */
-.footer-episodes ul {
-    list-style: none;
-    padding: 0;
-    text-align: left;
+.footer-contact-section p {
+  margin-bottom: 8px;
+  color: #ccc;
+  font-size: 0.95em;
+  line-height: 1.5;
 }
 
-.footer-episodes li {
-    margin-bottom: 5px;
+.footer-contact-section a {
+  color: #DA706D;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.footer-episodes a {
-    color: #333; /* Link color */
-    text-decoration: none;
-    color: #fff;
+.footer-contact-section a:hover {
+  color: #b8605d;
 }
 
-.footer-episodes a:hover {
-    text-decoration: underline;
+.icon {
+  margin-right: 5px;
 }
 
-/* Footer Bottom Section */
+.footer-signup-section p {
+  color: #ccc;
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.footer-signup-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-signup-section input {
+  padding: 10px;
+  border: 1px solid #DA706D;
+  border-radius: 4px;
+  background-color: #222;
+  color: #fff;
+}
+
+.footer-signup-section input::placeholder {
+  color: #aaa;
+}
+
+.footer-signup-section .btn-signup {
+  padding: 10px;
+  background-color: #DA706D;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.footer-signup-section .btn-signup:hover {
+  background-color: #b8605d;
+  transform: scale(1.05);
+}
+
 .footer-bottom {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid #444;
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 0.85em;
+  color: #aaa;
 }
 
-.footer-bottom p {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
+.footer-extra-links {
+  margin-top: 10px;
 }
 
-.footer-links {
-    display: flex;
-    gap: 15px;
+.footer-extra-links a {
+  color: #DA706D;
+  margin: 0 8px;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.footer-links a {
-    color: #333;
-    font-size: 16px;
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
+.footer-extra-links a:hover {
+  color: #b8605d;
 }
 
 

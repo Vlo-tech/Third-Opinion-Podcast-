@@ -1,224 +1,224 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Link to your header and global styles -->
-    <link rel="stylesheet" href="stylo.css">
-    <!-- Include Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>Third Opinion Podcast - Hosts Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Third Opinion Podcast - Hosts</title>
+  <link rel="stylesheet" href="stylo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-
-
-    <!-- Header (consistent across pages) -->
-    <header>
+  <!-- Header -->
+  <header>
     <div class="logo">
-        <a href="../index 4.html"> <!-- Link to homepage -->
-        <img src="path_to_logo_image.jpg" alt="Third Opinion Podcast Logo">
-        </a>
+      <a href="../index 4.html">
+        <!-- Replace with your actual logo image path -->
+        <img src="/images/logo.jpg" alt="Third Opinion Podcast Logo">
+      </a>
     </div>
     <nav>
-        <div class="hamburger-menu">
-        <div></div>
-        <div></div>
-        <div></div>
-        </div>
-        <ul>
+      <ul>
         <li><a href="Booking page/booking.html">Bookings</a></li>
         <li><a href="../episode pages/episodes.html">Episodes</a></li>
-        <!-- The Hosts with Dropdown -->
+        <!-- The Hosts Dropdown now links to the dynamic hosts page -->
         <li class="dropdown">
-            <a href="/hosts page/index2.html" class="dropbtn">The Hosts</a>
-            <ul class="dropdown-content">
-            <li><a href="/hosts page/talia.html">Talia</a></li>
-            <li><a href="/hosts page/josh.html">Josh</a></li>
-            <li><a href="/hosts page/valentine.html">Valentine</a></li>
-            </ul>
+          <a href="hosts2.html?host=talia" class="dropbtn">The Hosts</a>
+          <ul class="dropdown-content">
+            <li><a href="hosts2.html?host=talia">Talia</a></li>
+            <li><a href="hosts2.html?host=josh">Josh</a></li>
+            <li><a href="hosts2.html?host=valentine">Valentine</a></li>
+          </ul>
         </li>
-        <!-- Shop with Dropdown -->
         <li class="dropdown">
-            <a href="Shop pages/shopoverview.html" class="dropbtn">Shop</a>
-            <ul class="dropdown-content">
+          <a href="Shop pages/shopoverview.html" class="dropbtn">Shop</a>
+          <ul class="dropdown-content">
             <li><a href="Shop pages/Merch.html">Merchandise</a></li>
             <li><a href="Shop pages/Accessories.html">Accessories</a></li>
             <li><a href="Shop pages/Specials.html">Special Offers</a></li>
-            </ul>
+          </ul>
         </li>
-        <!-- Fan Club with Dropdown -->
         <li class="dropdown">
-            <a href="fanclub.html" class="dropbtn">Fan Club</a>
-            <ul class="dropdown-content">
+          <a href="fanclub.html" class="dropbtn">Fan Club</a>
+          <ul class="dropdown-content">
             <li><a href="fanclub.html#members">Members</a></li>
             <li><a href="fanclub.html#events">Events</a></li>
             <li><a href="fanclub.html#sponsors">Sponsors</a></li>
             <li><a href="fanclub.html#join">Join</a></li>
-            </ul>
+          </ul>
         </li>
-        </ul>
-        <i class="fas fa-search" id="searchIcon" aria-label="Search"></i>
+      </ul>
+      <i class="fas fa-search" id="searchIcon" aria-label="Search"></i>
     </nav>
-
-    <!-- Search Bar (Initially Hidden) -->
+    <!-- Search Bar -->
     <div id="searchBar" class="search-bar" aria-hidden="true">
-        <input type="text" id="Searchinput" placeholder="Search..." />
-        <button id="closeSearch" class="close-btn">&times;</button>
+      <input type="text" id="Searchinput" placeholder="Search..." />
+      <button id="closeSearch" class="close-btn">&times;</button>
     </div>
-    </header>
+  </header>
 
-    <!-- Main Content: Modern Split-Screen Host Sections -->
-    <main>
-    <!-- Host Section 1: Talia (Image Left, Text Right) -->
-    <section class="host-section">
-        <div class="host-image">
-        <img src="hosts images/Third Opinion Podcast Thumbnail talia .jpg" alt="Talia">
-        </div>
-        <div class="host-info">
-        <h2>Talia</h2>
-        <p>
-            Talia is one of our dynamic hosts, known for her creativity and insightful perspectives.
-            With a passion for storytelling, she brings vibrant energy to every episode.
-        </p>
-        <a href="Talia2.html" class="host-link">View Talia's Profile</a>
-        </div>
+  <!-- Main Content -->
+  <main>
+    <!-- Intro Section -->
+    <section class="intro">
+      <h1>Welcome to Third Opinion Podcast</h1>
+      <p>
+        Discover our journey and meet the passionate hosts behind our thought‑provoking conversations.
+        Explore our diverse perspectives, vibrant stories, and the creative spirit that drives us forward.
+      </p>
     </section>
 
-    <!-- Host Section 2: Josh (Reverse Layout: Text Left, Image Right) -->
-    <section class="host-section reverse">
-        <div class="host-info">
-        <h2>Josh</h2>
-        <p>
-            Josh offers a sharp analytical mind and a keen sense of humor.
-            His deep industry knowledge and relaxed style create the perfect balance in our conversations.
-        </p>
-        <a href="Josh2.html" class="host-link">View Josh's Profile</a>
+    <!-- Hosts Grid -->
+    <section class="hosts-grid">
+      <!-- Host Card for Talia -->
+      <div class="host-card">
+        <img src="hosts images/Third Opinion Podcast Thumbnail talia .jpg" alt="Talia" class="host-photo">
+        <div class="host-details">
+          <h2>Talia</h2>
+          <p>
+            Talia is a creative visionary with a passion for storytelling and insight. Her energy and perspective bring our episodes to life.
+          </p>
+          <a href="hosts2.html?host=talia" class="host-link">View Profile</a>
         </div>
-        <div class="host-image">
-        <img src="hosts images/third opinion hosts image 3 .jpg" alt="Josh">
+      </div>
+      <!-- Host Card for Josh -->
+      <div class="host-card">
+        <img src="hosts images/third opinion hosts image 3 .jpg" alt="Josh" class="host-photo">
+        <div class="host-details">
+          <h2>Josh</h2>
+          <p>
+            Josh combines analytical depth with a touch of humor. His industry knowledge and relaxed style provide a balanced view in every discussion.
+          </p>
+          <a href="hosts2.html?host=josh" class="host-link">View Profile</a>
         </div>
+      </div>
+      <!-- Host Card for Valentine -->
+      <div class="host-card">
+        <img src="hosts images/Third Opinion Podcast Thumbnail.jpg" alt="Valentine" class="host-photo">
+        <div class="host-details">
+          <h2>Valentine</h2>
+          <p>
+            Valentine connects with guests and listeners through empathy and balance. Her thoughtful approach adds depth and warmth to every conversation.
+          </p>
+          <a href="hosts2.html?host=valentine" class="host-link">View Profile</a>
+        </div>
+      </div>
     </section>
 
-    <!-- Host Section 3: Valentine (Image Left, Text Right) -->
-    <section class="host-section">
-        <div class="host-image">
-        <img src="hosts images/Third Opinion Podcast Thumbnail.jpg" alt="Valentine">
-        </div>
-        <div class="host-info">
-        <h2>Valentine</h2>
-        <p>
-            Valentine brings empathetic insights and a balanced approach.
-            Her ability to connect with guests and listeners adds depth and warmth to every conversation.
-        </p>
-        <a href="valentine.html" class="host-link">View Valentine's Profile</a>
-        </div>
-    </section>
-
+    <!-- Video Cards Section -->
     <section class="video-cards">
-    <!-- Video Card 1 -->
-    <div class="video-card">
+      <!-- Video Card 1 -->
+      <div class="video-card">
         <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_1" target="_blank" rel="noopener">
-            <video preload="auto" loop poster="hosts images/video 1 thumbnail .jpg" 
-                    onmouseenter="this.play()" 
-                    onmouseleave="this.pause(); this.currentTime = 0;">
-                <source src="hosts images/video 2 third opinion .mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-info">
-                <h3>About Us Video 1</h3>
-            </div>
+          <video preload="auto" loop poster="hosts images/video 1 thumbnail .jpg" 
+                  onmouseenter="this.play()" 
+                  onmouseleave="this.pause(); this.currentTime = 0;">
+            <source src="hosts images/video 2 third opinion .mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-info">
+            <h3>About Us Video 1</h3>
+          </div>
         </a>
-    </div>
-
-    <!-- Video Card 2 -->
-    <div class="video-card">
+      </div>
+      <!-- Video Card 2 -->
+      <div class="video-card">
         <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_2" target="_blank" rel="noopener">
-            <video preload="auto" loop poster="hosts images/video 2 thumbnail.jpg" 
-                    onmouseenter="this.play()" 
-                    onmouseleave="this.pause(); this.currentTime = 0;">
-                <source src="hosts images/video 1 third opinion .mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-info">
-                <h3>About Us Video 2</h3>
-            </div>
+          <video preload="auto" loop poster="hosts images/video 2 thumbnail.jpg" 
+                  onmouseenter="this.play()" 
+                  onmouseleave="this.pause(); this.currentTime = 0;">
+            <source src="hosts images/video 1 third opinion .mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-info">
+            <h3>About Us Video 2</h3>
+          </div>
         </a>
-    </div>
-
-    <!-- Video Card 3 -->
-    <div class="video-card">
+      </div>
+      <!-- Video Card 3 -->
+      <div class="video-card">
         <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_3" target="_blank" rel="noopener">
-            <video preload="auto" loop poster="hosts images/video 3 thumbnail .jpg" 
-                    onmouseenter="this.play()" 
-                    onmouseleave="this.pause(); this.currentTime = 0;">
-                <source src="hosts images/video 3 third opnion pod.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-info">
-                <h3>About Us Video 3</h3>
-            </div>
+          <video preload="auto" loop poster="hosts images/video 3 thumbnail .jpg" 
+                  onmouseenter="this.play()" 
+                  onmouseleave="this.pause(); this.currentTime = 0;">
+            <source src="hosts images/video 3 third opnion pod.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-info">
+            <h3>About Us Video 3</h3>
+          </div>
         </a>
-    </div>
-</section>
-    
-    </main>
+      </div>
+      <!-- Video Card 4 -->
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_3" target="_blank" rel="noopener">
+          <video preload="auto" loop poster="hosts images/video 4 thumbnail.jpg" 
+                  onmouseenter="this.play()" 
+                  onmouseleave="this.pause(); this.currentTime = 0;">
+            <source src="hosts images/hosts video 4 .mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-info">
+            <h3>About Us Video 4</h3>
+          </div>
+        </a>
+      </div>
+      
+    </section>
+  </main>
 
-    <!-- Footer -->
-    <footer>
-    <div class="social-icons">
-        <a href="" class="fab fa-facebook" title="Follow us on Facebook"></a>
-        <a href="#" class="fab fa-twitter" title="Follow us on Twitter"></a>
-        <a href="https://www.instagram.com/mariontalliaaa._/" class="fab fa-instagram" title="Follow us on Instagram"></a>
-        <a href="https://www.tiktok.com/@hearts.of.val" class="fab fa-tiktok" title="Follow us on TikTok"></a>
-        <a href="#" class="fab fa-spotify" title="Follow us on Spotify"></a>
-        <a href="#" class="fab fa-amazon" title="Follow us on Amazon"></a>
-        <a href="#" class="fab fa-apple" title="Follow us on Apple Podcast"></a>
-        <a href="#" class="fab fa-heart" title="Follow us on Apple Music"></a>
-    </div>
-
-    <!-- Main Footer Content -->
-    <div class="footer-content">
-        <!-- About Us Section -->
-        <div class="footer-about">
-        <h4>About Us</h4>
+  <!-- Footer -->
+  <footer class="angled-footer">
+    <div class="footer-inner">
+      <!-- Footer Brand -->
+      <div class="footer-brand">
+        <h2>Third Opinion Podcast</h2>
         <p>
-            Welcome to TAJOVA Podcast, a show where we explore: Self improvement, Nature, Lifestyle, Diplomacy, Travel, Mental health and more.
-            Our goal as your hosts is to entertain, educate, and connect with listeners through compelling conversations from our diverse perspectives.
+          Welcome to <strong>Third Opinion Podcast</strong>, where we explore
+          <em>Self Improvement, Nature, Lifestyle, Diplomacy, Travel, Mental Health, and more.</em>
+          Our goal is to entertain, educate, and connect with listeners through compelling conversations from our diverse perspectives.
         </p>
-        </div>
-
-        <!-- Recent Episodes Section -->
-        <div class="footer-episodes">
+      </div>
+      <!-- Footer Links -->
+      <div class="footer-links-section">
         <h4>Recent Episodes</h4>
         <ul>
-            <li><a href="episode pages/episodes.html">Episode 1: A New Beginning</a></li>
-            <li><a href="episode pages/episodes.html">Episode 2: The Journey Continues</a></li>
-            <li><a href="episode pages/episodes.html">Episode 3: New Horizons</a></li>
-            <li><a href="episode pages/episodes.html">Episode 4: Deep Dive</a></li>
+          <li><a href="episode pages/episodes.html">Episode 1: A New Beginning</a></li>
+          <li><a href="episode pages/episodes.html">Episode 2: The Journey Continues</a></li>
+          <li><a href="episode pages/episodes.html">Episode 3: New Horizons</a></li>
+          <li><a href="episode pages/episodes.html">Episode 4: Deep Dive</a></li>
         </ul>
-        </div>
-
-        <!-- Contact Information Section -->
-        <div class="footer-contact">
+      </div>
+      <!-- Footer Contact -->
+      <div class="footer-contact-section">
         <h4>Contact Information</h4>
-        <p>Email: tajova@gmail.com</p>
-        <p>Phone: +254 743289335</p>
-        <p>Location: Nairobi, Kenya</p>
-        </div>
+        <p><span class="icon">📧</span> Email: <a href="mailto:thirdOpinion@gmail.com">thirdOpinion@gmail.com</a></p>
+        <p><span class="icon">📞</span> Phone: +254 743289335</p>
+        <p><span class="icon">📍</span> Location: Nairobi, Kenya</p>
+      </div>
+      <!-- Footer Sign-Up -->
+      <div class="footer-signup-section">
+        <h4>Stay Updated</h4>
+        <p>Sign up to receive the latest updates, episodes, and exclusive content directly to your inbox.</p>
+        <form id="footerLeadForm">
+          <input type="text" id="footerName" name="name" placeholder="Your Name" required>
+          <input type="email" id="footerEmail" name="email" placeholder="Your Email" required>
+          <button type="submit" class="btn-signup">Sign Up</button>
+        </form>
+      </div>
     </div>
-
-    <!-- Footer Bottom Section -->
     <div class="footer-bottom">
-        <p>&copy; 2025 TAJOVA Podcast. All rights reserved.</p>
-        <div class="footer-links">
+      <p>&copy; 2025 Third Opinion Podcast. All rights reserved.</p>
+      <div class="footer-extra-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
         <a href="#">Online Agreement</a>
         <a href="#">Fraud Alert</a>
-        </div>
+      </div>
     </div>
-    </footer>
+  </footer>
 
-    <script src="jv.js"></script>
+  <!-- Include External JavaScript -->
+  <script src="jv.js"></script>
 </body>
 </html>
+
