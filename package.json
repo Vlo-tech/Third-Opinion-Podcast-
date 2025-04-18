@@ -23,6 +23,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "helmet": "^8.1.0",
-    "mongoose": "^8.13.1"
+    "mongoose": "^8.13.1",
+    "node-fetch": "^2.7.0"
   }
 }

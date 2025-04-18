@@ -9,6 +9,10 @@ const helmet = require('helmet');
 const mongoose = require('mongoose');
 const path = require('path');
 
+
+// import our helper
+const { lipaNaMpesa } = require('./mpesa');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -177,4 +181,20 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 .catch(err => {
     console.error('MongoDB connection failed:', err.message);
+});
+
+// POST /api/mpesa/pay
+app.post('/api/mpesa/pay', async (req, res) => {
+  const { phone, amount, accountRef, desc } = req.body;
+  if (!phone || !amount) {
+    return res.status(400).json({ error: "phone and amount are required" });
+  }
+
+  try {
+    const result = await lipaNaMpesa({ phone, amount, accountRef, desc });
+    res.json({ success: true, data: result });
+  } catch (err) {
+    console.error("Mpesa error:", err);
+    res.status(500).json({ error: err.message });
+  }
 });

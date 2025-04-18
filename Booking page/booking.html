@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book a Session | Third Opinion Podcast</title>
+  <link rel="stylesheet" href="booking.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="background-overlay"></div>
+  <main class="booking-container">
+    <h1>🎙️ Book Your Session</h1>
+    <form id="bookingForm">
+      <div class="input-group">
+        <input type="text" name="name" required />
+        <label>Name</label>
+      </div>
+      <div class="input-group">
+        <input type="email" name="email" required />
+        <label>Email</label>
+      </div>
+      <div class="input-group">
+        <input type="tel" name="phone" required title="Enter your phone number" placeholder="Enter your phone number" />
+        <label>Phone Number</label>
+      </div>
+      <div class="input-group">
+        <input type="datetime-local" name="datetime" placeholder="Select date and time" required />
+        <label>Date & Time</label>
+      </div>
+      <div class="input-group">
+        <input type="number" name="amount" min="1" required title="Enter the amount in USD" placeholder="Enter amount in USD" />
+        <label>Amount (USD)</label>
+      </div>
+
+      <div class="payment-methods">
+        <label><input type="radio" name="method" value="paystack" checked /> Paystack</label>
+        <label><input type="radio" name="method" value="mpesa" /> M-Pesa</label>
+      </div>
+
+      <button type="submit" id="payButton">💸 Pay & Book</button>
+    </form>
+  </main>
+
+  <script src="booking.js"></script>
+</body>
+</html>
+
