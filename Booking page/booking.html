@@ -6,30 +6,50 @@
   <title>Book a Session | Third Opinion Podcast</title>
   <link rel="stylesheet" href="booking.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Toastify CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <a href="../index 4.html">
+        <img src="/images/logo.jpg" alt="Third Opinion Podcast Logo">
+      </a>
+    </div>
+    <nav>
+      <!-- … your nav links … -->
+    </nav>
+    <!-- Search Bar -->
+    <div id="searchBar" class="search-bar" aria-hidden="true">
+      <input type="text" id="Searchinput" placeholder="Search..." />
+      <button id="closeSearch" class="close-btn">&times;</button>
+    </div>
+  </header>
+
   <div class="background-overlay"></div>
   <main class="booking-container">
     <h1>🎙️ Book Your Session</h1>
     <form id="bookingForm">
       <div class="input-group">
-        <input type="text" name="name" required />
+        <input type="text" name="name" required placeholder="Enter your full name" />
         <label>Name</label>
       </div>
       <div class="input-group">
-        <input type="email" name="email" required />
+        <input type="email" name="email" required placeholder="Enter your email address" />
         <label>Email</label>
       </div>
       <div class="input-group">
-        <input type="tel" name="phone" required title="Enter your phone number" placeholder="Enter your phone number" />
+        <input type="tel" name="phone" required placeholder="Enter your phone number" />
         <label>Phone Number</label>
       </div>
       <div class="input-group">
-        <input type="datetime-local" name="datetime" placeholder="Select date and time" required />
+        <input type="datetime-local" name="datetime" required title="Select a date and time" placeholder="Select a date and time" />
         <label>Date & Time</label>
       </div>
       <div class="input-group">
-        <input type="number" name="amount" min="1" required title="Enter the amount in USD" placeholder="Enter amount in USD" />
+        <input type="number" name="amount" min="1" required placeholder="Enter amount in USD" />
         <label>Amount (USD)</label>
       </div>
 
@@ -42,7 +62,12 @@
     </form>
   </main>
 
+  <!-- Toastify and Confetti JS libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+  <!-- Your booking logic -->
   <script src="booking.js"></script>
 </body>
 </html>
+
 
