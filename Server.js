@@ -2,15 +2,26 @@ require('dotenv').config(); // Load environment variables
 console.log("MONGO_URI from .env:", process.env.MONGO_URI);
 console.log("Current directory:", process.cwd());
 
-const express       = require('express');
-const bodyParser    = require('body-parser');
-const cors          = require('cors');
-const helmet        = require('helmet');
-const mongoose      = require('mongoose');
-const path          = require('path');
+const express    = require('express');
+const bodyParser = require('body-parser');
+const cors       = require('cors');
+const helmet     = require('helmet');
+const mongoose   = require('mongoose');
+const path       = require('path');
 
 // M-Pesa helper
 const { lipaNaMpesa } = require('./mpesa');
+
+// PayPal SDK setup
+const paypalSDK    = require('@paypal/checkout-server-sdk');
+const paypalEnv    = new paypalSDK.core.SandboxEnvironment(
+  process.env.PAYPAL_CLIENT_ID,
+  process.env.PAYPAL_SECRET
+);
+const paypalClient = new paypalSDK.core.PayPalHttpClient(paypalEnv);
+
+// Paystack SDK setup
+const Paystack     = require('paystack-api')(process.env.PAYSTACK_SECRET_KEY);
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -203,6 +214,85 @@ mongoose.connect(process.env.MONGO_URI, {
     res.status(200).send('Callback received');
   });
 
+  // ——— PayPal endpoints ———
+
+  // Create PayPal order
+  app.post('/api/paypal/create-order', async (req, res) => {
+    const { amount } = req.body;
+    const request  = new paypalSDK.orders.OrdersCreateRequest();
+    request.prefer("return=representation");
+    request.requestBody({
+      intent: "CAPTURE",
+      purchase_units: [{
+        amount: {
+          currency_code: "USD",
+          value: amount.toString()
+        }
+      }]
+    });
+    try {
+      const order = await paypalClient.execute(request);
+      res.json(order.result);
+    } catch (err) {
+      console.error("PayPal create-order error:", err);
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // Capture PayPal order
+  app.post('/api/paypal/capture-order', async (req, res) => {
+    const { orderID } = req.body;
+    const request     = new paypalSDK.orders.OrdersCaptureRequest(orderID);
+    request.requestBody({});
+    try {
+      const capture = await paypalClient.execute(request);
+      res.json(capture.result);
+    } catch (err) {
+      console.error("PayPal capture-order error:", err);
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // ——— Paystack initialize & verify ———
+
+  // Initialize a Paystack transaction
+  app.post('/api/paystack/initialize', async (req, res) => {
+    const { email, amount, currency } = req.body;
+    if (!email || !amount || !currency) {
+      return res.status(400).json({ status: false, message: 'email, amount & currency required' });
+    }
+    try {
+      const init = await Paystack.transaction.initialize({
+        email,
+        amount:   amount * 100,   // in kobo if KES, cents if USD
+        currency  // "KES" or "USD"
+      });
+      res.json(init);
+    } catch (err) {
+      console.error('Paystack init error:', err);
+      res.status(500).json({ status: false, message: err.message });
+    }
+  });
+
+  // Verify a Paystack transaction
+  app.get('/api/paystack/verify/:reference', async (req, res) => {
+    try {
+      const verification = await Paystack.transaction.verify({
+        reference: req.params.reference
+      });
+      res.json(verification);
+    } catch (err) {
+      console.error('Paystack verify error:', err);
+      res.status(500).json({ status: false, message: err.message });
+    }
+  });
+
+  // ——— Paystack webhook endpoint ———
+  app.post('/api/paystack/webhook', (req, res) => {
+    console.log('✅ Paystack webhook received:', JSON.stringify(req.body, null, 2));
+    res.sendStatus(200);
+  });
+
   // 13) Start listening
   app.listen(PORT, () => {
     console.log(`🚀 Server is running on port ${PORT}`);
@@ -213,7 +303,5 @@ mongoose.connect(process.env.MONGO_URI, {
   console.error('❌ MongoDB connection failed:', err.message);
   process.exit(1);
 });
-
-
 
 

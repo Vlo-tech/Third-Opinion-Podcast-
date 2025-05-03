@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <!-- Toastify CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <!-- PayPal SDK; replace YOUR_CLIENT_ID with your sandbox or live PayPal client ID -->
+  <script src="https://www.paypal.com/sdk/js?client-id=AdUN9sW7vR9igkK_8sEc3iFKm-aSbeUMP3ZxQ6Nq1ng0TcVyhO6U4k_8G3l-hTSukKDEwwHfnW40dZKd&currency=USD" defer></script>
 </head>
 <body>
 
@@ -15,11 +17,42 @@
   <header>
     <div class="logo">
       <a href="../index 4.html">
+        <!-- Replace with your actual logo image path -->
         <img src="/images/logo.jpg" alt="Third Opinion Podcast Logo">
       </a>
     </div>
     <nav>
-      <!-- … your nav links … -->
+      <ul>
+        <li><a href="booking.html">Bookings</a></li>
+        <li><a href="../episode pages/episodes.html">Episodes</a></li>
+        <!-- The Hosts Dropdown now links to the dynamic hosts page -->
+        <li class="dropdown">
+          <a href="../hosts page/index2.html" class="dropbtn">The Hosts</a>
+          <ul class="dropdown-content">
+            <li><a href="../hosts page/Talia2.html">Talia</a></li>
+            <li><a href="../hosts page/Josh2.html">Josh</a></li>
+            <li><a href="../hosts page/valentine.html">Valentine</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="../Shop pages/shopoverview.html" class="dropbtn">Shop</a>
+          <ul class="dropdown-content">
+            <li><a href="../Shop pages/Merch.html">Merchandise</a></li>
+            <li><a href="../Shop pages/Accessories.html">Accessories</a></li>
+            <li><a href="../Shop pages/Specials.html">Special Offers</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="fanclub.html" class="dropbtn">Fan Club</a>
+          <ul class="dropdown-content">
+            <li><a href="fanclub.html#members">Members</a></li>
+            <li><a href="fanclub.html#events">Events</a></li>
+            <li><a href="fanclub.html#sponsors">Sponsors</a></li>
+            <li><a href="fanclub.html#join">Join</a></li>
+          </ul>
+        </li>
+      </ul>
+      <i class="fas fa-search" id="searchIcon" aria-label="Search"></i>
     </nav>
     <!-- Search Bar -->
     <div id="searchBar" class="search-bar" aria-hidden="true">
@@ -28,7 +61,6 @@
     </div>
   </header>
 
-  <div class="background-overlay"></div>
   <main class="booking-container">
     <h1>🎙️ Book Your Session</h1>
     <form id="bookingForm">
@@ -36,38 +68,60 @@
         <input type="text" name="name" required placeholder="Enter your full name" />
         <label>Name</label>
       </div>
+
       <div class="input-group">
         <input type="email" name="email" required placeholder="Enter your email address" />
         <label>Email</label>
       </div>
+
       <div class="input-group">
         <input type="tel" name="phone" required placeholder="Enter your phone number" />
         <label>Phone Number</label>
       </div>
+
       <div class="input-group">
-        <input type="datetime-local" name="datetime" required title="Select a date and time" placeholder="Select a date and time" />
+        <input type="datetime-local" name="datetime" required title="Select a date and time for your session" placeholder="Select date and time" />
         <label>Date & Time</label>
       </div>
+
       <div class="input-group">
-        <input type="number" name="amount" min="1" required placeholder="Enter amount in USD" />
-        <label>Amount (USD)</label>
+        <input type="number" name="amount" min="1" required placeholder="Enter amount" />
+        <label>Amount</label>
+      </div>
+
+      <div class="input-group">
+        <label>Currency</label>
+        <select name="currency" required title="Select your preferred currency">
+          <option value="KES">KES</option>
+          <option value="USD">USD</option>
+        </select>
       </div>
 
       <div class="payment-methods">
         <label><input type="radio" name="method" value="paystack" checked /> Paystack</label>
         <label><input type="radio" name="method" value="mpesa" /> M-Pesa</label>
+        <label><input type="radio" name="method" value="paypal" /> PayPal</label>
       </div>
 
+      <!-- This button drives Paystack & M-Pesa -->
       <button type="submit" id="payButton">💸 Pay & Book</button>
+
+      <!-- PayPal renders its own buttons into this container -->
+      <div id="paypal-button-container" class="paypal-container"></div>
     </form>
   </main>
 
-  <!-- Toastify and Confetti JS libraries -->
+  <!-- Toastify & Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-  <!-- Your booking logic -->
+  <!-- Paystack library -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <!-- Booking Logic -->
   <script src="booking.js"></script>
 </body>
 </html>
+
+
+
 
 
