@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Third Opinion Fan Club</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <a href="../index 4.html">
+        <img src="/images/logo.jpg" alt="Third Opinion Podcast Logo" />
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../Booking page/booking.html">Bookings</a></li>
+        <li><a href="../episode pages/episodes.html">Episodes</a></li>
+        <li class="dropdown">
+          <a href="../hosts page/index2.html" class="dropbtn">The Hosts</a>
+          <ul class="dropdown-content">
+            <li><a href="../hosts page/Talia2.html">Talia</a></li>
+            <li><a href="../hosts page/Josh2.html">Josh</a></li>
+            <li><a href="../hosts page/valentine.html">Valentine</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="Shop pages/shopoverview.html" class="dropbtn">Shop</a>
+          <ul class="dropdown-content">
+            <li><a href="Shop pages/Merch.html">Merchandise</a></li>
+            <li><a href="Shop pages/Accessories.html">Accessories</a></li>
+            <li><a href="Shop pages/Specials.html">Special Offers</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="../fanclub page/index.html" class="dropbtn">Fan Club</a>
+          <ul class="dropdown-content">
+            <li><a href="#members">Members</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#sponsors">Sponsors</a></li>
+            <li><a href="#join">Join</a></li>
+          </ul>
+        </li>
+      </ul>
+      <i class="fas fa-search" id="searchIcon" aria-label="Search"></i>
+    </nav>
+    <div id="searchBar" class="search-bar" aria-hidden="true">
+      <input type="text" id="Searchinput" placeholder="Search..." />
+      <button id="closeSearch" class="close-btn">&times;</button>
+    </div>
+  </header>
+
+  <!-- Fan Club Content -->
+  <main>
+    <section id="members" class="glass">
+      <h1>Meet the Fam</h1>
+      <p>Our fan club is full of amazing, vibrant people who live and breathe the Third Opinion vibe. We celebrate each episode, throw inside jokes, and make this community feel like home.</p>
+    </section>
+
+    <section id="events" class="glass">
+      <h1>Upcoming Events</h1>
+      <p>🎤 Live podcast taping<br>🍦 Ice cream socials<br>🎉 Fan Meetups<br>💬 Behind-the-scenes Q&A sessions with the hosts</p>
+    </section>
+
+    <section id="sponsors" class="glass">
+      <h1>Sponsors</h1>
+      <p>Big shoutout to our supporters who make everything possible. Want your brand featured? Let’s talk!</p>
+    </section>
+
+    <section id="join" class="glass">
+      <h1>Become a Member</h1>
+      <p>Join us and be part of something bigger. Exclusive merch, early episode access, and your name in our credits!</p>
+      <a href="#" class="join-btn">Join the Club</a>
+    </section>
+  </main>
+
+  <!-- Chat Widget -->
+  <div class="chatbox-toggle" id="chatToggle">💬</div>
+  <div class="chatbox-window" id="chatWindow">
+    <div class="chatbox-header">Let's Chat</div>
+    <div class="chatbox-body" id="chatMessages">
+      <div class="message bot">Hey there! Got a question about the fan club?</div>
+    </div>
+    <form class="chatbox-input" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Type your message..." />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="jg.js"></script>
+</body>
+</html>
+
+
+

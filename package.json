@@ -28,6 +28,7 @@
     "helmet": "^8.1.0",
     "mongoose": "^8.13.1",
     "node-fetch": "^2.7.0",
+    "openai": "^4.97.0",
     "paystack": "^2.0.1",
     "paystack-api": "^2.0.6",
     "toastify-js": "^1.12.0"
