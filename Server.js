@@ -9,6 +9,11 @@ const helmet     = require('helmet');
 const mongoose   = require('mongoose');
 const path       = require('path');
 
+// Passport.js setup
+const session = require('express-session');
+const passport = require('passport');
+require('./passport'); // Ensure passport.js is in the same directory
+
 // M-Pesa helper
 const { lipaNaMpesa } = require('./mpesa');
 
@@ -35,15 +40,30 @@ const PORT = process.env.PORT || 3000;
 // 1) Secure HTTP headers
 app.use(helmet());
 
+// Express session middleware (required for Passport to work)
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET, 
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+// Initialize Passport and session
+app.use(passport.initialize());
+app.use(passport.session());
+
 // 2) CORS: only your dev front-ends
-app.use(cors({
-  origin: [
-    'http://127.0.0.1:5500',
-    'http://localhost:3000'
-  ],
-  methods: ['GET','POST'],
-  allowedHeaders: ['Content-Type']
-}));
+app.use(
+  cors({
+    origin: [
+      'http://127.0.0.1:5500',
+      'http://localhost:3000'
+    ],
+    methods: ['GET','POST'],
+    allowedHeaders: ['Content-Type']
+  })
+);
 
 // 3) JSON body parsing
 app.use(bodyParser.json());
@@ -77,7 +97,6 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 .then(async () => {
   console.log('✅ MongoDB connected successfully');
-
 
   // 8) Define Episode schema + model
   const episodeSchema = new mongoose.Schema({
@@ -256,16 +275,61 @@ mongoose.connect(process.env.MONGO_URI, {
     }
   });
 
+  // 14) Google OAuth routes
+  app.get(
+    '/auth/google', 
+    passport.authenticate('google', { scope: ['profile', 'email'] })
+  );
+
+  app.get(
+    '/auth/google/callback',
+    passport.authenticate('google', { failureRedirect: '/' }),
+    (req, res) => {
+      res.redirect('/dashboard');
+    }
+  );
+
+  // ——— NEW SECTION: Google ID token verification (GIS flow) ———
+  const { OAuth2Client } = require('google-auth-library');
+  const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+  app.post('/auth/google/verify', async (req, res) => {
+    const { id_token } = req.body;
+
+    try {
+      const ticket = await client.verifyIdToken({
+        idToken: id_token,
+        audience: process.env.GOOGLE_CLIENT_ID,
+      });
+      const payload = ticket.getPayload();
+      const User = require('./models/User');
+      let user = await User.findOne({ googleId: payload.sub });
+      if (!user) {
+        user = await User.create({
+          googleId: payload.sub,
+          email:    payload.email,
+          name:     payload.name,
+          photoUrl: payload.picture,
+        });
+      }
+      req.session.user = user;
+      return res.json({ success: true });
+    } catch (error) {
+      console.error('Google ID token verification failed:', error);
+      return res.status(401).json({ success: false, message: 'Invalid ID token' });
+    }
+  });
+
   // 13) Start listening
   app.listen(PORT, () => {
     console.log('🚀 Server is running on port ${PORT}');
   });
-
 })
 .catch(err => {
   console.error('❌ MongoDB connection failed:', err.message);
   process.exit(1);
 });
+
 
 
 

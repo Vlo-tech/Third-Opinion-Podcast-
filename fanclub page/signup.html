@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join The Third Opinion Community</title>
+  <link rel="stylesheet" href="sign.css" />
+  <!-- Google Identity Services SDK -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <div class="signup-container">
+    <div class="left-section">
+      <h1>Join The Third Opinion Community</h1>
+      <p>Sign up to connect with fellow listeners, get exclusive updates, and never miss an episode.</p>
+
+      <!-- Traditional Sign-Up Form -->
+      <form id="signup-form" action="/api/leads" method="POST">
+        <input type="text"   name="name"     placeholder="Full Name"        required />
+        <input type="email"  name="email"    placeholder="Email Address"    required />
+        <input type="password" name="password" placeholder="Create Password" required />
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <div class="separator">— OR —</div>
+
+      <!-- Official Google Sign-In Button (GIS) -->
+      <div id="g_id_onload"
+           data-client_id="1098162679453-2k07c9lj8r7gldp1rkmc76bhe3rqigfu.apps.googleusercontent.com"
+           data-callback="handleCredentialResponse"
+           data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin"
+           data-type="standard"
+           data-size="large"
+           data-theme="outline"
+           data-text="continue_with"
+           data-shape="rectangular"
+           data-logo_alignment="left">
+      </div>
+    </div>
+
+    <div class="right-section">
+      <img src="/public/images/join-illustration.svg" alt="Join Illustration" />
+    </div>
+  </div>
+
+  <script>
+    function handleCredentialResponse(response) {
+      // response.credential is the Google ID token (JWT)
+      console.log("Encoded JWT ID token: " + response.credential);
+
+      // Send it to your backend for verification/sign-in:
+      fetch('/auth/google/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id_token: response.credential })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          window.location.href = '/dashboard';
+        } else {
+          alert('Google sign-in failed');
+        }
+      })
+      .catch(err => {
+        console.error('Error verifying Google ID token:', err);
+      });
+    }
+  </script>
+</body>
+</html>
+
