@@ -1,0 +1,60 @@
+/* admin/css/dashboard.css */
+
+/* 1. Force black background for body (if not set inline) */
+body {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* 2. Sidebar background */
+.sidebar {
+  background-color: #111;
+}
+
+/* 3. Orchid brand color overrides */
+:root {
+  --bs-primary: #DA70D6;        /* Bootstrap primary */
+  --bs-secondary: #6c757d;     /* Keep default secondary or adjust if desired */
+}
+
+/* 4. Orchid‐colored button */
+.btn-orchid {
+  background-color: #DA70D6;
+  color: #000;
+  border: none;
+}
+.btn-orchid:hover,
+.btn-orchid:focus {
+  background-color: #c65ac3;
+  color: #fff;
+}
+
+/* 5. Text in orchid color */
+.text-orchid {
+  color: #DA70D6 !important;
+}
+
+/* 6. Card background variations */
+.card {
+  background-color: #222; /* slightly lighter than pure black */
+}
+.card .card-body {
+  background-color: transparent;
+}
+
+/* 7. Sidebar links */
+.sidebar .nav-link {
+  color: #ddd;
+}
+.sidebar .nav-link:hover {
+  color: #fff;
+}
+
+/* 8. Hide scrollbars (optional) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}

@@ -1,6 +1,9 @@
 require('dotenv').config(); // Load environment variables
-console.log("MONGO_URI from .env:", process.env.MONGO_URI);
-console.log("Current directory:", process.cwd());
+
+if (process.env.NODE_ENV !== 'production') {
+  console.log("MONGO_URI from .env:", process.env.MONGO_URI);
+  console.log("Current directory:", process.cwd());
+}
 
 const express    = require('express');
 const bodyParser = require('body-parser');
@@ -10,9 +13,12 @@ const mongoose   = require('mongoose');
 const path       = require('path');
 
 // Passport.js setup
-const session = require('express-session');
+const session  = require('express-session');
 const passport = require('passport');
 require('./passport'); // Ensure passport.js is in the same directory
+
+// Use connect‐mongo for session storage
+const MongoStore = require('connect-mongo');
 
 // M-Pesa helper
 const { lipaNaMpesa } = require('./mpesa');
@@ -41,11 +47,13 @@ const PORT = process.env.PORT || 3000;
 app.use(helmet());
 
 // Express session middleware (required for Passport to work)
+// Now storing sessions in MongoDB instead of memory
 app.use(
   session({
     secret: process.env.SESSION_SECRET, 
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
   })
 );
 
@@ -98,15 +106,10 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(async () => {
   console.log('✅ MongoDB connected successfully');
 
-  // 8) Define Episode schema + model
-  const episodeSchema = new mongoose.Schema({
-    episodeNumber: { type: Number, required: true, unique: true },
-    title:         { type: String, required: true },
-    summary:       { type: String, required: true },
-    thumbnail:     { type: String, required: true },
-    audioUrl:      { type: String, required: true }
-  });
-  const Episode = mongoose.model('Episode', episodeSchema);
+  // 8) Import models
+  const Episode = require('./models/Episode');
+
+  
 
   // ----- BEGIN: SEEDING LOGIC (original callback style) -----
   const seedEpisodes = [
@@ -285,7 +288,8 @@ mongoose.connect(process.env.MONGO_URI, {
     '/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/' }),
     (req, res) => {
-      res.redirect('/dashboard');
+      // After successful OAuth, redirect to dashboard
+      res.redirect('/admin/dashboard');
     }
   );
 
@@ -302,7 +306,7 @@ mongoose.connect(process.env.MONGO_URI, {
         audience: process.env.GOOGLE_CLIENT_ID,
       });
       const payload = ticket.getPayload();
-      const User = require('./models/User');
+      const User = require('./models/user');
       let user = await User.findOne({ googleId: payload.sub });
       if (!user) {
         user = await User.create({
@@ -310,9 +314,15 @@ mongoose.connect(process.env.MONGO_URI, {
           email:    payload.email,
           name:     payload.name,
           photoUrl: payload.picture,
+          role:     'user' // default role; adjust later in admin panel
         });
       }
-      req.session.user = user;
+      req.session.user = {
+        email:    user.email,
+        role:     user.role,
+        name:     user.name,
+        photoUrl: user.photoUrl
+      };
       return res.json({ success: true });
     } catch (error) {
       console.error('Google ID token verification failed:', error);
@@ -320,15 +330,29 @@ mongoose.connect(process.env.MONGO_URI, {
     }
   });
 
-  // 13) Start listening
+  // 15) Return current user info
+  app.get('/api/current-user', (req, res) => {
+    if (!req.session.user) {
+      return res.status(401).json({ message: 'Not logged in' });
+    }
+    const { email, role, name, photoUrl } = req.session.user;
+    res.json({ email, role: role || 'user', name, photoUrl });
+  });
+
+  // 16) Mount admin routes
+  const adminRoutes = require('./ADMIN/routes/adminRoutes');
+  app.use('/admin', adminRoutes);
+
+  // 17) Start listening
   app.listen(PORT, () => {
-    console.log('🚀 Server is running on port ${PORT}');
+    console.log(`🚀 Server is running on port ${PORT}`);
   });
 })
 .catch(err => {
   console.error('❌ MongoDB connection failed:', err.message);
   process.exit(1);
 });
+
 
 
 
